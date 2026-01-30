@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cvrmm0kmq5ka"]
+
+[ext_resource type="PackedScene" uid="uid://cvcfxk0einj7l" path="res://Jeremias/Ennemies/ice_agent.tscn" id="1_k0srl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25b0o"]
+size = Vector2(794, 51)
+
+[sub_resource type="Gradient" id="Gradient_k0srl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sfidg"]
+gradient = SubResource("Gradient_k0srl")
+
+[node name="TestingEnv" type="Node2D" unique_id=497577059]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=498334815]
+position = Vector2(705, 597)
+collision_layer = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1689574217]
+position = Vector2(1, 25.5)
+shape = SubResource("RectangleShape2D_25b0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=1142651461]
+position = Vector2(-1.5258789e-05, 25.25)
+scale = Vector2(3.1093745, -49.500008)
+texture = SubResource("GradientTexture1D_sfidg")
+
+[node name="Floor2" type="StaticBody2D" parent="." unique_id=1053460253]
+position = Vector2(473, 250)
+collision_layer = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=74159475]
+position = Vector2(1, 25.5)
+shape = SubResource("RectangleShape2D_25b0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2" unique_id=1935909902]
+position = Vector2(-1.5258789e-05, 25.25)
+scale = Vector2(3.1093745, -49.500008)
+texture = SubResource("GradientTexture1D_sfidg")
+
+[node name="IceAgent" parent="." unique_id=2006280407 instance=ExtResource("1_k0srl")]
+position = Vector2(204, 165)
