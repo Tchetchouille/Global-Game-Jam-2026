@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="1_53tqs"]
 [ext_resource type="Texture2D" uid="uid://carwaymivooak" path="res://icon.svg" id="2_eyeta"]
 [ext_resource type="Script" uid="uid://crtk1gb2a1ejy" path="res://Colins_stuff/player_scene/mask_1_1.gd" id="2_jpm8j"]
+[ext_resource type="Texture2D" uid="uid://bhr8lrx2h0wxj" path="res://Colins_stuff/placeholder/placeholders.png" id="4_rniya"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_53tqs"]
 distance = -47.0
@@ -18,12 +19,14 @@ z_index = 5
 position = Vector2(-442, -966)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=202983801]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=300224437]
 position = Vector2(1, 0)
 shape = SubResource("WorldBoundaryShape2D_53tqs")
 
 [node name="Mask1&1" type="Area2D" parent="." unique_id=1411965734]
+z_index = 1
 position = Vector2(1617, -716)
 script = ExtResource("2_jpm8j")
 
@@ -49,6 +52,23 @@ autowrap_mode = 2
 [node name="TextTimer" type="Timer" parent="." unique_id=1692479757]
 wait_time = 5.0
 one_shot = true
+
+[node name="Current" type="TileMapLayer" parent="." unique_id=734578663]
+
+[node name="Foreground" type="TileMapLayer" parent="." unique_id=1627295738]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1055173934]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=981327706]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1087679118]
+texture_repeat = 2
+position = Vector2(2, 0)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_rniya")
+region_enabled = true
+region_rect = Rect2(0, 0, 19200, 6912)
 
 [connection signal="body_entered" from="Mask1&1" to="Mask1&1" method="_on_body_entered"]
 [connection signal="body_exited" from="Mask1&1" to="Mask1&1" method="_on_body_exited"]
