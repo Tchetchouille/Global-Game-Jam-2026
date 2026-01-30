@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b4aw606v5j1h0"]
+
+[ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="1_53tqs"]
+[ext_resource type="Texture2D" uid="uid://carwaymivooak" path="res://icon.svg" id="2_eyeta"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_53tqs"]
+distance = -47.0
+
+[node name="Test" type="Node2D" unique_id=1165854359]
+
+[node name="Player" parent="." unique_id=1087869672 instance=ExtResource("1_53tqs")]
+position = Vector2(-70, -107)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=202983801]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=300224437]
+position = Vector2(1, 0)
+shape = SubResource("WorldBoundaryShape2D_53tqs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357599385]
+position = Vector2(93, -21)
+texture = ExtResource("2_eyeta")
