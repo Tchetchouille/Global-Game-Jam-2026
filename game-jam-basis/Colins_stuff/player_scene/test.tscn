@@ -2,14 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="1_53tqs"]
 [ext_resource type="Texture2D" uid="uid://carwaymivooak" path="res://icon.svg" id="2_eyeta"]
+[ext_resource type="Script" uid="uid://crtk1gb2a1ejy" path="res://Colins_stuff/player_scene/mask_1_1.gd" id="2_jpm8j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_53tqs"]
 distance = -47.0
 
-[node name="Test" type="Node2D" unique_id=1165854359]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyeta"]
+radius = 333.0
+height = 1292.0
+
+[node name="Level1" type="Node2D" unique_id=1165854359]
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("1_53tqs")]
-position = Vector2(-70, -107)
+z_index = 5
+position = Vector2(-442, -966)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=202983801]
 
@@ -17,6 +23,33 @@ position = Vector2(-70, -107)
 position = Vector2(1, 0)
 shape = SubResource("WorldBoundaryShape2D_53tqs")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=357599385]
-position = Vector2(93, -21)
+[node name="Mask1&1" type="Area2D" parent="." unique_id=1411965734]
+position = Vector2(1617, -716)
+script = ExtResource("2_jpm8j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mask1&1" unique_id=357599385]
+position = Vector2(1.9999695, 120.50002)
+scale = Vector2(6.9375005, 7.367187)
 texture = ExtResource("2_eyeta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mask1&1" unique_id=1838558933]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_eyeta")
+
+[node name="Label" type="Label" parent="." unique_id=1920570301]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 432.0
+offset_top = -759.0
+offset_right = 1343.0
+offset_bottom = -473.0
+theme_override_font_sizes/font_size = 96
+text = "Appuie sur E pour intéragir"
+autowrap_mode = 2
+
+[node name="TextTimer" type="Timer" parent="." unique_id=1692479757]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Mask1&1" to="Mask1&1" method="_on_body_entered"]
+[connection signal="body_exited" from="Mask1&1" to="Mask1&1" method="_on_body_exited"]
+[connection signal="timeout" from="TextTimer" to="Mask1&1" method="_on_text_timer_timeout"]

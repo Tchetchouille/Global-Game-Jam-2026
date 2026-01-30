@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 400.0
-const ACCELERATION = 150.0
-const DECELERATION = 750.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 800.0
+const ACCELERATION = 300.0
+const DECELERATION = 1500.0
+const JUMP_VELOCITY = -500.0
 var z_axis = 0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		if (direction < 0 and velocity.x > 0) or (direction > 0 and velocity.x < 0):
-			velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
+			velocity.x = move_toward(velocity.x, 0, DECELERATION*delta*1.5)
 		else:
 			velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
 	else:
