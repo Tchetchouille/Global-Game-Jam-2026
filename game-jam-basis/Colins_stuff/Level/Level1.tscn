@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://strplhun7aj8"]
+
+[ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="2_3q76x"]
+[ext_resource type="PackedScene" uid="uid://c22xre1ml6fbo" path="res://Colins_stuff/Level/TileSet.tscn" id="2_fjvcd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fjvcd"]
+
+[node name="Level1" type="Node2D" unique_id=2071320361]
+
+[node name="Player" parent="." unique_id=1087869672 instance=ExtResource("2_3q76x")]
+position = Vector2(75, -95)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=24744725]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=916090841]
+position = Vector2(136, 629)
+shape = SubResource("WorldBoundaryShape2D_fjvcd")
+
+[node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
+position = Vector2(4, 0)
