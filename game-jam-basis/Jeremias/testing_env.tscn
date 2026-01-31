@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvrmm0kmq5ka"]
 
 [ext_resource type="PackedScene" uid="uid://cvcfxk0einj7l" path="res://Jeremias/Ennemies/ice_agent.tscn" id="1_k0srl"]
+[ext_resource type="PackedScene" uid="uid://6lmpu0egdqh1" path="res://Jeremias/Testing/bait.tscn" id="2_sfidg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25b0o"]
 size = Vector2(794, 51)
@@ -11,11 +12,21 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_sfidg"]
 gradient = SubResource("Gradient_k0srl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0srl"]
+size = Vector2(130, 176)
+
+[sub_resource type="Gradient" id="Gradient_sfidg"]
+colors = PackedColorArray(0.4351923, 0.43519226, 0.43519226, 1, 0.43529412, 0.43529412, 0.43529412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m0hpa"]
+gradient = SubResource("Gradient_sfidg")
+
 [node name="TestingEnv" type="Node2D" unique_id=497577059]
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=498334815]
-position = Vector2(705, 597)
+position = Vector2(-264, 595)
 collision_layer = 32768
+collision_mask = 16385
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1689574217]
 position = Vector2(1, 25.5)
@@ -27,8 +38,9 @@ scale = Vector2(3.1093745, -49.500008)
 texture = SubResource("GradientTexture1D_sfidg")
 
 [node name="Floor2" type="StaticBody2D" parent="." unique_id=1053460253]
-position = Vector2(473, 250)
+position = Vector2(753, 594)
 collision_layer = 32768
+collision_mask = 16385
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2" unique_id=74159475]
 position = Vector2(1, 25.5)
@@ -40,4 +52,21 @@ scale = Vector2(3.1093745, -49.500008)
 texture = SubResource("GradientTexture1D_sfidg")
 
 [node name="IceAgent" parent="." unique_id=2006280407 instance=ExtResource("1_k0srl")]
-position = Vector2(204, 165)
+position = Vector2(648, 521)
+
+[node name="Random Obstacle" type="StaticBody2D" parent="." unique_id=1750535718]
+position = Vector2(881, 418)
+collision_layer = 8192
+collision_mask = 16385
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Random Obstacle" unique_id=1840936893]
+position = Vector2(-64, 87)
+shape = SubResource("RectangleShape2D_k0srl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Random Obstacle" unique_id=1609609832]
+position = Vector2(-64, 86.75)
+scale = Vector2(0.5, 174.5)
+texture = SubResource("GradientTexture1D_m0hpa")
+
+[node name="Bait" parent="." unique_id=2067820996 instance=ExtResource("2_sfidg")]
+position = Vector2(-441, 307)

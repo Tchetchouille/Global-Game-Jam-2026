@@ -7,6 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="IceAgent" type="CharacterBody2D" unique_id=434924876]
+collision_layer = 16384
 collision_mask = 32769
 script = ExtResource("1_qsr7u")
 
@@ -17,10 +18,54 @@ shape = SubResource("RectangleShape2D_qsr7u")
 texture = ExtResource("1_f14ix")
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=713930349]
+wait_time = 3.0
 one_shot = true
 
 [node name="FloorCheck" type="RayCast2D" parent="." unique_id=1426091649]
 position = Vector2(-68, 16)
 collision_mask = 32768
+
+[node name="PlayerCheck" type="Node2D" parent="." unique_id=89626677]
+
+[node name="PlayerCheckTop" type="RayCast2D" parent="PlayerCheck" unique_id=1573550913]
+position = Vector2(-62, -63)
+target_position = Vector2(-357, -293)
+
+[node name="PlayerCheckMiddleTop" type="RayCast2D" parent="PlayerCheck" unique_id=1154223967]
+position = Vector2(-62, -32)
+target_position = Vector2(-484, -150)
+
+[node name="PlayerCheckMiddle" type="RayCast2D" parent="PlayerCheck" unique_id=503860080]
+position = Vector2(-60, 37)
+target_position = Vector2(-484, 150)
+
+[node name="PlayerCheckMiddleBottom" type="RayCast2D" parent="PlayerCheck" unique_id=969771894]
+position = Vector2(-62, 4)
+target_position = Vector2(-533, 0)
+
+[node name="PlayerCheckBottom" type="RayCast2D" parent="PlayerCheck" unique_id=791870672]
+position = Vector2(-60, 64)
+target_position = Vector2(-357, 293)
+
+[node name="ObstacleCheck" type="Node2D" parent="." unique_id=848424802]
+
+[node name="ObstacleCheckTop" type="RayCast2D" parent="ObstacleCheck" unique_id=165768025]
+position = Vector2(-63, -63)
+target_position = Vector2(-21, 0)
+collision_mask = 8192
+
+[node name="ObstacleCheckMidle" type="RayCast2D" parent="ObstacleCheck" unique_id=647345806]
+position = Vector2(-61, 0)
+target_position = Vector2(-21, 0)
+collision_mask = 8192
+
+[node name="ObstacleCheckBottom" type="RayCast2D" parent="ObstacleCheck" unique_id=722209777]
+position = Vector2(-61, 63)
+target_position = Vector2(-21, 0)
+collision_mask = 8192
+
+[node name="PursuingTimer" type="Timer" parent="." unique_id=1475611520]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
