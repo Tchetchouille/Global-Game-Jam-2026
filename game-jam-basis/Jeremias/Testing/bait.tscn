@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://6lmpu0egdqh1"]
+
+[ext_resource type="Script" uid="uid://bqixftdovjvsk" path="res://Jeremias/Testing/bait.gd" id="1_1d0ng"]
+
+[sub_resource type="Gradient" id="Gradient_lmh6g"]
+colors = PackedColorArray(1, 0, 0, 1, 0.767401, 0, 0.1171658, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jju0b"]
+gradient = SubResource("Gradient_lmh6g")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d0ng"]
+size = Vector2(138, 133)
+
+[node name="Bait" type="CharacterBody2D" unique_id=2067820996]
+collision_mask = 32768
+script = ExtResource("1_1d0ng")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1342948112]
+position = Vector2(-2.503395e-06, 0)
+scale = Vector2(0.5390625, 132)
+texture = SubResource("GradientTexture1D_jju0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1848024080]
+shape = SubResource("RectangleShape2D_1d0ng")
