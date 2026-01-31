@@ -29,8 +29,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
 	if Input.is_action_just_pressed("change_z"):
-		z_axis +=1
-		print(z_axis%3)
+		change_mask()
 	
 	# Gérer la direction du player
 	if direction > 0:
@@ -47,3 +46,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite.play("jump")
 	move_and_slide()
+
+
+
+	
