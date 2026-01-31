@@ -126,6 +126,7 @@ animations = [{
 size = Vector2(64, 317)
 
 [node name="Player" type="CharacterBody2D" unique_id=1087869672]
+collision_mask = 3584
 script = ExtResource("1_kkfac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1635316690]

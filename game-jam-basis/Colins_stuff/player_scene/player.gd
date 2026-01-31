@@ -5,7 +5,7 @@ const SPEED = 1200.0
 const ACCELERATION = 450.0
 const DECELERATION = 2250.0
 const JUMP_VELOCITY = -750.0
-var z_axis = 0
+var mask = 3
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, SPEED*direction, ACCELERATION*delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, DECELERATION*delta)
+	
+	# Mask change
 	if Input.is_action_just_pressed("change_z"):
 		change_mask()
 	
@@ -47,6 +49,12 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("jump")
 	move_and_slide()
 
-
-
+func change_mask():
+	if mask < 3:
+		set_collision_mask_value(10 + mask, true)
+	mask += 1
+	if mask > 3:
+		mask = 0
+	if mask < 3:
+		set_collision_mask_value(10 + mask, false)
 	
