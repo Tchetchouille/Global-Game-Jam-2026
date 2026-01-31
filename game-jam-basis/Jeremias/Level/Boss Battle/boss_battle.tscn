@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://b1b2oqc0v2yep"]
 
+[ext_resource type="Script" uid="uid://cechv5k6ig8gj" path="res://Jeremias/Level/Boss Battle/boss_battle.gd" id="1_c8bb7"]
 [ext_resource type="PackedScene" uid="uid://sevjw3igpcj" path="res://Jeremias/Level/Boss Battle/elon_mask.tscn" id="1_qtrae"]
 [ext_resource type="Script" uid="uid://beoyfqrlmtml8" path="res://Jeremias/Level/rgb.gd" id="2_yxy6r"]
 [ext_resource type="Texture2D" uid="uid://ct8h6uymfshof" path="res://Colins_stuff/sprites/tile_sheet_brique_fond.png" id="3_if7uc"]
 [ext_resource type="Script" uid="uid://dx6xe4t73mtrx" path="res://Jeremias/Level/tiles.gd" id="4_2haej"]
 [ext_resource type="Material" uid="uid://csvfqtvkwhk86" path="res://Jeremias/Materials/sprite_rgb_material.tres" id="4_7p15a"]
-[ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="4_if7uc"]
 [ext_resource type="TileSet" uid="uid://bnipwpsl0faoh" path="res://TileSet/tileset_B.tres" id="5_c8bb7"]
 [ext_resource type="TileSet" uid="uid://t7j0bqhyn185" path="res://TileSet/tileset_G.tres" id="7_s28xs"]
 
@@ -71,14 +71,14 @@ physics_layer_0/collision_layer = 2048
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_lsgcl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s28xs"]
+size = Vector2(3747, 2230)
+
 [node name="BossBattle" type="Node2D" unique_id=1956200531]
+script = ExtResource("1_c8bb7")
 
 [node name="ElonMask" parent="." unique_id=1535777038 instance=ExtResource("1_qtrae")]
 position = Vector2(675, 177)
-
-[node name="Player" parent="." unique_id=1087869672 instance=ExtResource("4_if7uc")]
-position = Vector2(271, 313)
-unlocked_masks = 3
 
 [node name="RGB" type="Node2D" parent="." unique_id=458607985]
 script = ExtResource("2_yxy6r")
@@ -88,30 +88,40 @@ scroll_scale = Vector2(0.8, 0.8)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="RGB/R" unique_id=416973100]
 material = ExtResource("4_7p15a")
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAALAAQAAAAAAAEAAAAMAAQAAAAAAAEAAAANAAQAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AADy/wgAAAAAAAEAAADz/wgAAAAAAAEAAAD0/wgAAAAAAAEAAAD1/wgAAAAAAAEAAAD2/wgAAAAAAAEAAAD3/wgAAAAAAAEAAAD4/wgAAAAAAAEAAAD5/wgAAAAAAAEAAAD6/wgAAAAAAAEAAAD7/wgAAAAAAAEAAAD8/wgAAAAAAAEAAAD9/wgAAAAAAAEAAAD+/wgAAAAAAAEAAAD//wgAAAAAAAEAAAAAAAgAAAAAAAEAAAABAAgAAAAAAAEAAAACAAgAAAAAAAEAAAADAAgAAAAAAAEAAAAEAAgAAAAAAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAAAAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAAANAAgAAAAAAAEAAAA=")
 tile_set = ExtResource("5_c8bb7")
 script = ExtResource("4_2haej")
 layer = 1
 
 [node name="G" type="Parallax2D" parent="RGB" unique_id=1877512572]
-scroll_offset = Vector2(0, 22)
+scroll_offset = Vector2(0, -65)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="RGB/G" unique_id=38677190]
 material = ExtResource("4_7p15a")
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAkAAAAKAAMAAAAAAAMAAAAKAAIAAAAAAAMAAAAKAAEAAAAAAAMAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAEAAAAMAAAAAAAAAAEAAAANAAAAAAAAAAIAAAANAAEAAAAAAAUAAAANAAIAAAAAAAUAAAANAAMAAAAAAAQAAAALAAEAAAAAAAQAAAAMAAEAAAAAAAQAAAALAAIAAAAAAAQAAAAMAAIAAAAAAAQAAAALAAMAAAAAAAQAAAAMAAMAAAAAAAQAAAALAAQAAAAAAAQAAAAMAAQAAAAAAAQAAAA=")
+tile_map_data = PackedByteArray("AAD7/wgAAAAAAAEAAAD8/wgAAAAAAAEAAAD9/wgAAAAAAAEAAAD+/wgAAAAAAAEAAAD//wgAAAAAAAEAAAAAAAgAAAAAAAEAAAABAAgAAAAAAAEAAAACAAgAAAAAAAEAAAADAAgAAAAAAAEAAAAEAAgAAAAAAAEAAAAFAAgAAAAAAAEAAAD6/wgAAAAAAAEAAAD5/wgAAAAAAAEAAAD4/wgAAAAAAAEAAAD3/wgAAAAAAAEAAAD2/wgAAAAAAAEAAAD1/wgAAAAAAAEAAAD0/wgAAAAAAAEAAADz/wgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAAAAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAADy/wgAAAAAAAEAAAANAAgAAAAAAAEAAAAOAAgAAAAAAAkAAADx/wgAAAAAAAoAAAAOAAcAAAAAAAMAAAAOAAYAAAAAAAMAAAAOAAUAAAAAAAMAAAAOAAQAAAAAAAMAAAAOAAMAAAAAAAMAAAAOAAIAAAAAAAMAAAAOAAEAAAAAAAMAAAAOAAAAAAAAAAMAAAAOAP//AAAAAAMAAAAOAP7/AAAAAAMAAAAOAP3/AAAAAAMAAAAOAPz/AAAAAAMAAAAOAPv/AAAAAAMAAADx/wcAAAAAAAIAAADw/wcAAAAAAAAAAADw/wgAAAAAAAMAAADw/wIAAAAAAAMAAADw/wEAAAAAAAMAAADw/wAAAAAAAAMAAADw////AAAAAAMAAADw//7/AAAAAAMAAADw//3/AAAAAAMAAADw//z/AAAAAAMAAADw//v/AAAAAAMAAADw//r/AAAAAAMAAADw//n/AAAAAAMAAADw//j/AAAAAAMAAADw//f/AAAAAAMAAADx/wIAAAAAAAUAAADx/wEAAAAAAAUAAADx/wAAAAAAAAUAAADx////AAAAAAUAAADx//7/AAAAAAUAAADx//3/AAAAAAUAAADx//z/AAAAAAUAAADx//v/AAAAAAUAAADx//r/AAAAAAUAAADx//n/AAAAAAUAAADx//j/AAAAAAUAAADw/wMAAAAAAAYAAADx/wMAAAAAAAgAAADx//f/AAAAAAwAAADy//f/AAAAAAcAAADz//f/AAAAAAcAAAD0//f/AAAAAAcAAAA=")
 tile_set = ExtResource("7_s28xs")
 script = ExtResource("4_2haej")
 layer = 2
 
 [node name="B" type="Parallax2D" parent="RGB" unique_id=481703067]
 scroll_scale = Vector2(1.2, 1.2)
-scroll_offset = Vector2(0, 44)
+scroll_offset = Vector2(0, -120)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="RGB/B" unique_id=200806080]
 material = ExtResource("4_7p15a")
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAALAAQAAAAAAAEAAAAMAAQAAAAAAAEAAAANAAQAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AADy/wgAAAAAAAEAAADz/wgAAAAAAAEAAAD0/wgAAAAAAAEAAAD1/wgAAAAAAAEAAAD2/wgAAAAAAAEAAAD3/wgAAAAAAAEAAAD4/wgAAAAAAAEAAAD5/wgAAAAAAAEAAAD6/wgAAAAAAAEAAAD7/wgAAAAAAAEAAAD8/wgAAAAAAAEAAAD9/wgAAAAAAAEAAAD+/wgAAAAAAAEAAAD//wgAAAAAAAEAAAAAAAgAAAAAAAEAAAABAAgAAAAAAAEAAAACAAgAAAAAAAEAAAADAAgAAAAAAAEAAAAEAAgAAAAAAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAAAAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAAANAAgAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_880lw")
 script = ExtResource("4_2haej")
 layer = 3
 
-[connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
+[node name="TransitionToFight" type="Area2D" parent="." unique_id=1628746872]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionToFight" unique_id=1337334010]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_s28xs")
+
+[node name="TransitionTimer" type="Timer" parent="." unique_id=1514103191]
+one_shot = true
+
+[connection signal="body_entered" from="TransitionToFight" to="." method="_on_transition_to_fight_body_entered"]
+[connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

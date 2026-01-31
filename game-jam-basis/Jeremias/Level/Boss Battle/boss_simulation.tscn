@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c7snjs4wp62ta"]
+
+[ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="1_sk73u"]
+[ext_resource type="PackedScene" uid="uid://b1b2oqc0v2yep" path="res://Jeremias/Level/Boss Battle/boss_battle.tscn" id="2_xrdh8"]
+
+[node name="BossSimulation" type="Node2D" unique_id=301990615]
+
+[node name="Player" parent="." unique_id=1087869672 instance=ExtResource("1_sk73u")]
+position = Vector2(-2000, 660)
+unlocked_masks = 3
+
+[node name="BossBattle" parent="." unique_id=1956200531 instance=ExtResource("2_xrdh8")]

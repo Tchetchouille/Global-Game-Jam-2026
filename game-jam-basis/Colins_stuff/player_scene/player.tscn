@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6u7w3uthyuol" path="res://Colins_stuff/player_scene/player.gd" id="1_kkfac"]
 [ext_resource type="Texture2D" uid="uid://dttre21dr4e1g" path="res://Colins_stuff/sprites/spritesheet_luigi.png" id="2_kkfac"]
+[ext_resource type="Script" uid="uid://dbxoo8b43fxxq" path="res://Colins_stuff/player_scene/player_camera.gd" id="3_vjrsf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjrsf"]
 atlas = ExtResource("2_kkfac")
@@ -142,6 +143,7 @@ animation = &"death"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=113379081]
 position = Vector2(2, 0)
 zoom = Vector2(0.5, 0.5)
+script = ExtResource("3_vjrsf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=2072367075]
 
