@@ -75,20 +75,21 @@ func die():
 
 func change_mask():
 	if $MaskCheck.has_overlapping_bodies() == false:
-		if mask < unlocked_masks:
+		if mask > 0:
 			set_collision_mask_value(9 + mask, true)
-		if next_mask < unlocked_masks:
+		if next_mask > 0:
 			$MaskCheck.set_collision_mask_value(9 + next_mask, true)
 		mask = next_mask
 		next_mask += 1
 		if next_mask > unlocked_masks:
 			next_mask = 0
-		if mask < unlocked_masks:
+		if mask > 0:
 			set_collision_mask_value(9 + mask, false)
-		if next_mask < unlocked_masks:
+		if next_mask > 0:
 			$MaskCheck.set_collision_mask_value(9 + next_mask, false)
 		change_RGB.emit(mask)
 	else:
 		print("Something blocks you...")
 	$MaskSprite.texture = mask_textures[mask]
 	$Camera2D/CanvasLayer/Filter.color = filter_colors[mask]
+	print(get_collision_mask_value(10))

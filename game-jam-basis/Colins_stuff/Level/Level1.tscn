@@ -22,7 +22,7 @@ size = Vector2(160, 131)
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("2_3q76x")]
 z_index = 3
-position = Vector2(75, -95)
+position = Vector2(4729, -1868)
 
 [node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
 position = Vector2(4, 0)
@@ -63,11 +63,11 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MasqueRouge" type="Area2D" parent="." unique_id=397235351]
-position = Vector2(7011, -1580)
+position = Vector2(7036, -1564)
 script = ExtResource("8_3pows")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MasqueRouge" unique_id=381640697]
-position = Vector2(-71, -58)
+position = Vector2(14, 8)
 shape = SubResource("RectangleShape2D_3pows")
 
 [node name="Sprite2D" type="Sprite2D" parent="MasqueRouge" unique_id=1281542901]
@@ -75,9 +75,15 @@ position = Vector2(-11, 118)
 texture = ExtResource("8_3q8ky")
 
 [node name="LabelRouge" type="Label" parent="." unique_id=821913450]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 6851.0
+offset_top = -1789.0
+offset_right = 7227.0
+offset_bottom = -1660.0
+theme_override_fonts/font = ExtResource("7_nmlux")
+theme_override_font_sizes/font_size = 128
 
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="MasqueRouge" to="MasqueRouge" method="_on_body_entered"]
+[connection signal="body_exited" from="MasqueRouge" to="MasqueRouge" method="_on_body_exited"]
