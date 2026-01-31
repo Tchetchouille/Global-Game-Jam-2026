@@ -2,11 +2,13 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 func _on_body_entered(body: Node2D) -> void:
-	print("You died")
 	if body.has_method("die"):
 		body.die()
-	Engine.time_scale = 0.7
-	timer.start()
+	# Brute force check de si le body c'est le player
+	if body.has_method("change_mask"):
+		print("You died")
+		Engine.time_scale = 0.7
+		timer.start()
 
 
 func _on_timer_timeout() -> void:
