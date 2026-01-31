@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="1_53tqs"]
 [ext_resource type="Texture2D" uid="uid://carwaymivooak" path="res://icon.svg" id="2_eyeta"]
 [ext_resource type="Script" uid="uid://crtk1gb2a1ejy" path="res://Colins_stuff/player_scene/mask_1_1.gd" id="2_jpm8j"]
+[ext_resource type="FontFile" uid="uid://dr2dg1sgiylf1" path="res://Colins_stuff/fonts/Anarchist Mustache.ttf" id="4_jo4h1"]
 [ext_resource type="Texture2D" uid="uid://bhr8lrx2h0wxj" path="res://Colins_stuff/placeholder/placeholders.png" id="4_rniya"]
+[ext_resource type="PackedScene" uid="uid://criwlx0cna27f" path="res://Colins_stuff/player_scene/killzone.tscn" id="6_wg1pv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_53tqs"]
 distance = -47.0
@@ -11,6 +13,9 @@ distance = -47.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyeta"]
 radius = 333.0
 height = 1292.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2685g"]
+size = Vector2(111, 107)
 
 [node name="Level1" type="Node2D" unique_id=1165854359]
 
@@ -20,6 +25,7 @@ position = Vector2(-442, -966)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=202983801]
 z_index = 1
+collision_layer = 3584
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=300224437]
 position = Vector2(1, 0)
@@ -46,7 +52,8 @@ offset_left = 432.0
 offset_top = -759.0
 offset_right = 1343.0
 offset_bottom = -473.0
-theme_override_font_sizes/font_size = 96
+theme_override_fonts/font = ExtResource("4_jo4h1")
+theme_override_font_sizes/font_size = 128
 text = "Appuie sur E pour intéragir"
 autowrap_mode = 2
 
@@ -71,6 +78,17 @@ scale = Vector2(-8, 8)
 texture = ExtResource("4_rniya")
 region_enabled = true
 region_rect = Rect2(0, 0, 19200, 6912)
+
+[node name="Killzone" parent="." unique_id=133941148 instance=ExtResource("6_wg1pv")]
+position = Vector2(-1036, -248)
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=94063969]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("RectangleShape2D_2685g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Killzone" unique_id=1040174505]
+texture = ExtResource("2_eyeta")
 
 [connection signal="body_entered" from="Mask1&1" to="Mask1&1" method="_on_body_entered"]
 [connection signal="body_exited" from="Mask1&1" to="Mask1&1" method="_on_body_exited"]

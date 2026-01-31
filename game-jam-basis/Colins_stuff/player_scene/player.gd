@@ -5,6 +5,7 @@ const SPEED = 1200.0
 const ACCELERATION = 450.0
 const DECELERATION = 2250.0
 const JUMP_VELOCITY = -750.0
+var dying = false
 var mask = 3
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -40,14 +41,20 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	# Gestion des animations
-	if is_on_floor():
+	if is_on_floor() and !dying:
 		if direction == 0:
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
+	elif dying:
+		animated_sprite.play("death")
 	else:
 		animated_sprite.play("jump")
 	move_and_slide()
+
+func die():
+	dying = true
+
 
 func change_mask():
 	if mask < 3:

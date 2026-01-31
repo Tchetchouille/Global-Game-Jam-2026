@@ -69,12 +69,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d2hfy")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": SubResource("AtlasTexture_2fd4r")
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,7 +132,7 @@ script = ExtResource("1_kkfac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1635316690]
 sprite_frames = SubResource("SpriteFrames_gxg8e")
-animation = &"idle"
+animation = &"death"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=113379081]
 position = Vector2(2, 0)
