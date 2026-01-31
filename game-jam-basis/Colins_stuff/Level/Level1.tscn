@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="2_3q76x"]
 [ext_resource type="PackedScene" uid="uid://c22xre1ml6fbo" path="res://Colins_stuff/Level/TileSet.tscn" id="2_fjvcd"]
+[ext_resource type="PackedScene" uid="uid://cvcfxk0einj7l" path="res://Jeremias/Ennemies/ice_agent.tscn" id="3_3q76x"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fjvcd"]
 
@@ -11,6 +12,7 @@
 position = Vector2(75, -95)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=24744725]
+position = Vector2(405, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=916090841]
 position = Vector2(136, 629)
@@ -18,5 +20,8 @@ shape = SubResource("WorldBoundaryShape2D_fjvcd")
 
 [node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
 position = Vector2(4, 0)
+
+[node name="IceAgent" parent="." unique_id=434924876 instance=ExtResource("3_3q76x")]
+position = Vector2(716, -174)
 
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
