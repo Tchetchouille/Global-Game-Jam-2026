@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 	if !picked:
 		if Input.is_action_just_pressed("interact") and ENTERED:
 			$"../Player".unlocked_masks+=1
+			$"../LabelRouge".text = "Appuie sur SHIFT pour changer de masque"
 			APPEAR = -1
 			$Sprite2D.queue_free()
 			picked = true
