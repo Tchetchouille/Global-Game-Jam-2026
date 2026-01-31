@@ -8,6 +8,18 @@ const JUMP_VELOCITY = -750.0
 var dying = false
 var mask = 3
 var next_mask = 0
+var mask_textures = [
+	preload("res://Colins_stuff/sprites/mask_red.png"),
+	preload("res://Colins_stuff/sprites/mask_green.png"),
+	preload("res://Colins_stuff/sprites/mask_blue.png"),
+	null
+]
+var filter_colors = [
+	Color(0.72, 0.12, 0.28, 0.3),
+	Color(0.28, 0.72, 0.12, 0.3),
+	Color(0.12, 0.28, 0.72, 0.3),
+	Color(0.0, 0.0, 0.0, 0.0),
+]
 signal change_RGB
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -39,8 +51,10 @@ func _physics_process(delta: float) -> void:
 	# Gérer la direction du player
 	if direction > 0:
 		animated_sprite.flip_h = false
+		$MaskSprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		$MaskSprite.flip_h = true
 	
 	# Gestion des animations
 	if is_on_floor() and !dying:
@@ -56,13 +70,12 @@ func _physics_process(delta: float) -> void:
 
 func die():
 	dying = true
-
+	$MaskSprite.visible = false
 
 func change_mask():
 	if $MaskCheck.has_overlapping_bodies() == false:
 		if mask < 3:
 			set_collision_mask_value(10 + mask, true)
-			
 		if next_mask < 3:
 			$MaskCheck.set_collision_mask_value(10 + next_mask, true)
 		mask = next_mask
@@ -76,3 +89,5 @@ func change_mask():
 		change_RGB.emit()
 	else:
 		print("Something blocks you...")
+	$MaskSprite.texture = mask_textures[mask]
+	$Camera2D/CanvasLayer/Filter.color = filter_colors[mask]
