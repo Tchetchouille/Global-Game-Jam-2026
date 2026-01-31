@@ -18,3 +18,5 @@ shape = SubResource("WorldBoundaryShape2D_fjvcd")
 
 [node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
 position = Vector2(4, 0)
+
+[connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
