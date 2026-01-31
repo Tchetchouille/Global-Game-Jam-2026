@@ -104,10 +104,12 @@ func update_mask():
 		if rgb.mask < 3:
 			set_collision_mask_value(10 + mask, true)
 			$FloorCheck.set_collision_mask_value(10 + mask, true)
+			$DeathByWall.set_collision_mask_value(10 + mask, true)
 		mask = rgb.mask
 		if rgb.mask < 3:
 			set_collision_mask_value(10 + mask, false)
 			$FloorCheck.set_collision_mask_value(10 + mask, false)
+			$DeathByWall.set_collision_mask_value(10 + mask, false)
 
 func _on_idle_timer_timeout() -> void:
 	state = "roaming"
