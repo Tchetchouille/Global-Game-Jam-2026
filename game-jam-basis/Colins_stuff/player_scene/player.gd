@@ -25,6 +25,9 @@ signal change_RGB(current_mask)
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	change_mask()
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -92,4 +95,3 @@ func change_mask():
 		print("Something blocks you...")
 	$MaskSprite.texture = mask_textures[mask]
 	$Camera2D/CanvasLayer/Filter.color = filter_colors[mask]
-	print(get_collision_mask_value(10))

@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var rng = RandomNumberGenerator.new()
 
-const MAX_X_SPEED = 0
-const MAX_Y_SPEED = 0
+const MAX_X_SPEED = 300
+const MAX_Y_SPEED = 300
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("elon")
