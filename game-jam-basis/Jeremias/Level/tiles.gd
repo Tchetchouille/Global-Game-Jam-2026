@@ -9,6 +9,7 @@ var modulation = [
 @export var layer : int
 
 func _process(delta: float) -> void:
+	print(rgb.mask)
 	if rgb.mask == layer:
 		modulate.a = 0.2
 	else:

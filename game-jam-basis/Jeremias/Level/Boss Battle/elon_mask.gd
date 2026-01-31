@@ -6,7 +6,7 @@ const MAX_X_SPEED = 300
 const MAX_Y_SPEED = 300
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var x_acc = rng.randf_range(-40.0, 40.0)
 	var y_acc = rng.randf_range(-40.0, 40.0)
 	velocity.x += x_acc

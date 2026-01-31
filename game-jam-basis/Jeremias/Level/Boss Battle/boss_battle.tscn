@@ -3,36 +3,73 @@
 [ext_resource type="PackedScene" uid="uid://sevjw3igpcj" path="res://Jeremias/Level/Boss Battle/elon_mask.tscn" id="1_qtrae"]
 [ext_resource type="Script" uid="uid://beoyfqrlmtml8" path="res://Jeremias/Level/rgb.gd" id="2_yxy6r"]
 [ext_resource type="Texture2D" uid="uid://ct8h6uymfshof" path="res://Colins_stuff/sprites/tile_sheet_brique_fond.png" id="3_if7uc"]
+[ext_resource type="Script" uid="uid://dx6xe4t73mtrx" path="res://Jeremias/Level/tiles.gd" id="4_2haej"]
+[ext_resource type="Material" uid="uid://csvfqtvkwhk86" path="res://Jeremias/Materials/sprite_rgb_material.tres" id="4_7p15a"]
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="4_if7uc"]
+[ext_resource type="TileSet" uid="uid://bnipwpsl0faoh" path="res://TileSet/tileset_B.tres" id="5_c8bb7"]
+[ext_resource type="TileSet" uid="uid://t7j0bqhyn185" path="res://TileSet/tileset_G.tres" id="7_s28xs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2haej"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsgcl"]
 texture = ExtResource("3_if7uc")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 1:0/0 = 0
-0:1/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:2/0 = 0
-1:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:3/0 = 0
-1:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:4/0 = 0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-1:4/0 = 0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:5/0 = 0
-1:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:6/0 = 0
-1:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:7/0 = 0
-1:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+0:10/0 = 0
+0:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+0:12/0 = 0
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+0:11/0 = 0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 1:8/0 = 0
+1:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
+1:12/0 = 0
+1:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, 64, 64, -64, -64, -64, -64, 64)
 
-[sub_resource type="TileSet" id="TileSet_7p15a"]
+[sub_resource type="TileSet" id="TileSet_880lw"]
 tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 512
-sources/0 = SubResource("TileSetAtlasSource_2haej")
+physics_layer_0/collision_layer = 2048
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_lsgcl")
 
 [node name="BossBattle" type="Node2D" unique_id=1956200531]
 
@@ -42,15 +79,35 @@ position = Vector2(569, 281)
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("4_if7uc")]
 position = Vector2(271, 313)
 
-[node name="RGB" type="Node2D" parent="." unique_id=1360182363]
+[node name="RGB" type="Node2D" parent="." unique_id=458607985]
 script = ExtResource("2_yxy6r")
 
-[node name="R" type="Parallax2D" parent="RGB" unique_id=2106741579]
+[node name="R" type="Parallax2D" parent="RGB" unique_id=1723562825]
+scroll_scale = Vector2(0.8, 0.8)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="RGB/R" unique_id=23123293]
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAABAAQAAAAHAAUAAAABAAQAAAAGAAUAAAABAAQAAAAFAAUAAAABAAQAAAAEAAUAAAABAAQAAAADAAUAAAABAAQAAAACAAUAAAABAAQAAAABAAUAAAABAAQAAAAAAAUAAAABAAQAAAA=")
-tile_set = SubResource("TileSet_7p15a")
+[node name="TileMapLayer" type="TileMapLayer" parent="RGB/R" unique_id=416973100]
+material = ExtResource("4_7p15a")
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAA=")
+tile_set = ExtResource("5_c8bb7")
+script = ExtResource("4_2haej")
 
-[node name="G" type="Parallax2D" parent="RGB" unique_id=845566717]
+[node name="G" type="Parallax2D" parent="RGB" unique_id=1877512572]
 
-[node name="B" type="Parallax2D" parent="RGB" unique_id=96539222]
+[node name="TileMapLayer" type="TileMapLayer" parent="RGB/G" unique_id=38677190]
+material = ExtResource("4_7p15a")
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAA=")
+tile_set = ExtResource("7_s28xs")
+script = ExtResource("4_2haej")
+layer = 1
+
+[node name="B" type="Parallax2D" parent="RGB" unique_id=481703067]
+scroll_scale = Vector2(1.2, 1.2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="RGB/B" unique_id=200806080]
+material = ExtResource("4_7p15a")
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAEAAAADAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAHAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAJAAQAAAAAAAEAAAAKAAQAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_880lw")
+script = ExtResource("4_2haej")
+layer = 2
+
+[connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
