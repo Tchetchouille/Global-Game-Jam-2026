@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://c65rqw3f1iyvh" path="res://Jeremias/Ennemies/ice_agent.gd" id="1_qsr7u"]
 [ext_resource type="Texture2D" uid="uid://ks22pvik1ler" path="res://Colins_stuff/sprites/spritesheet_evil.png" id="2_qsr7u"]
 [ext_resource type="PackedScene" uid="uid://criwlx0cna27f" path="res://Colins_stuff/player_scene/killzone.tscn" id="3_7ifcc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsr7u"]
-size = Vector2(103, 293)
+[ext_resource type="Script" uid="uid://bb3qibjkq1p5w" path="res://Jeremias/Ennemies/death_by_wall.gd" id="4_3bk88"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ifcc"]
 atlas = ExtResource("2_qsr7u")
@@ -147,14 +145,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="IceAgent" type="CharacterBody2D" unique_id=434924876]
-collision_layer = 2
-collision_mask = 36353
-script = ExtResource("1_qsr7u")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsr7u"]
+size = Vector2(118, 293)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=915566340]
-position = Vector2(-1.5, 45.5)
-shape = SubResource("RectangleShape2D_qsr7u")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10a87"]
+size = Vector2(100, 272)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ifcc"]
+radius = 61.5
+height = 376.0
+
+[node name="IceAgent" type="CharacterBody2D" unique_id=434924876]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 3584
+script = ExtResource("1_qsr7u")
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=713930349]
 wait_time = 3.0
@@ -162,7 +168,8 @@ one_shot = true
 
 [node name="FloorCheck" type="RayCast2D" parent="." unique_id=1426091649]
 position = Vector2(-94, 147)
-collision_mask = 32768
+target_position = Vector2(0, 77)
+collision_mask = 36352
 
 [node name="PlayerCheck" type="Node2D" parent="." unique_id=89626677]
 position = Vector2(0, 1)
@@ -193,17 +200,17 @@ position = Vector2(-20, 128)
 [node name="ObstacleCheckTop" type="RayCast2D" parent="ObstacleCheck" unique_id=165768025]
 position = Vector2(-33, -229)
 target_position = Vector2(-51, 0)
-collision_mask = 8192
+collision_mask = 11776
 
 [node name="ObstacleCheckMidle" type="RayCast2D" parent="ObstacleCheck" unique_id=647345806]
 position = Vector2(-40, -96)
 target_position = Vector2(-51, 0)
-collision_mask = 8192
+collision_mask = 11776
 
 [node name="ObstacleCheckBottom" type="RayCast2D" parent="ObstacleCheck" unique_id=722209777]
 position = Vector2(-37, 60)
 target_position = Vector2(-51, 0)
-collision_mask = 8192
+collision_mask = 11776
 
 [node name="PursuingTimer" type="Timer" parent="." unique_id=1475611520]
 wait_time = 3.0
@@ -211,8 +218,7 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1521741250]
 sprite_frames = SubResource("SpriteFrames_g3icr")
-animation = &"fall"
-frame_progress = 0.98214
+animation = &"run"
 
 [node name="DeathTimer" type="Timer" parent="." unique_id=1959726147]
 one_shot = true
@@ -221,8 +227,22 @@ one_shot = true
 collision_mask = 3584
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone" unique_id=1449175875]
-position = Vector2(-1.5, 45.5)
+position = Vector2(-5, 12)
 shape = SubResource("RectangleShape2D_qsr7u")
+
+[node name="DeathByWall" type="Area2D" parent="." unique_id=1434846988]
+collision_layer = 2
+collision_mask = 3584
+script = ExtResource("4_3bk88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathByWall" unique_id=1382731271]
+position = Vector2(-4, 14)
+shape = SubResource("RectangleShape2D_10a87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=915566340]
+position = Vector2(-2, 18)
+shape = SubResource("CapsuleShape2D_7ifcc")
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="death_by_wall" from="DeathByWall" to="." method="_on_death_by_wall_death_by_wall"]

@@ -17,9 +17,11 @@ var dying = false
 	$ObstacleCheck/ObstacleCheckBottom
 ]
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var rgb = $"../RGB"
+@onready var mask = rgb.mask
 
-@export var roaming_speed = 100
-@export var pursuing_speed = 200
+@export var roaming_speed = 50
+@export var pursuing_speed = 250
 
 # Possible states: idle / falling / roaming / pursuing
 var state = "idle"
@@ -29,6 +31,9 @@ func _ready() -> void:
 	animated_sprite.flip_h = true
 
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	update_mask()
 	set_state()
 	process_state(delta)
 	move_and_slide()
@@ -74,8 +79,6 @@ func process_state(d):
 			velocity.x=0
 			if $DeathTimer.is_stopped():
 				$DeathTimer.start()
-			
-	print(state)
 
 func check_obstacles():
 	for ray in obstacle_detection:
@@ -91,11 +94,20 @@ func check_player():
 	return false
 
 func turn_towards_player():
-	print(target)
 	var dir = (position.x - target.position.x) * direction
 	if dir < 0:
 		scale.x = -1 * scale.x
 		direction = -direction
+
+func update_mask():
+	if mask != rgb.mask:
+		if rgb.mask < 3:
+			set_collision_mask_value(10 + mask, true)
+			$FloorCheck.set_collision_mask_value(10 + mask, true)
+		mask = rgb.mask
+		if rgb.mask < 3:
+			set_collision_mask_value(10 + mask, false)
+			$FloorCheck.set_collision_mask_value(10 + mask, false)
 
 func _on_idle_timer_timeout() -> void:
 	state = "roaming"
@@ -103,9 +115,14 @@ func _on_idle_timer_timeout() -> void:
 	direction = -direction
 
 func die():
+	if not dying:
+		$Killzone.queue_free()
 	dying = true
-	$CollisionShape2D.queue_free()
 
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_death_by_wall_death_by_wall() -> void:
+	die()
