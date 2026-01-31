@@ -2,6 +2,7 @@ extends TileMapLayer
 
 @onready var rgb = $"../.."
 var modulation = [
+	Vector3(0.0, 0.0, 0.0),
 	Vector3(0.6, 0.07, 0.3),
 	Vector3(0.3, 0.6, 0.07),
 	Vector3(0.07, 0.3, 0.6)

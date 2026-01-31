@@ -1,14 +1,32 @@
 [gd_scene format=3 uid="uid://sevjw3igpcj"]
 
 [ext_resource type="Script" uid="uid://cfg7xlsg5lau1" path="res://Jeremias/Level/Boss Battle/elon_mask.gd" id="1_oian4"]
+[ext_resource type="Texture2D" uid="uid://cmuajwilm4lq4" path="res://Colins_stuff/sprites/spritesheet_elon.png" id="2_5dj2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_27ghy"]
 size = Vector2(72, 61)
 
-[sub_resource type="Gradient" id="Gradient_oian4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dj2f"]
+atlas = ExtResource("2_5dj2f")
+region = Rect2(50, 0, 999, 1024)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5dj2f"]
-gradient = SubResource("Gradient_oian4")
+[sub_resource type="AtlasTexture" id="AtlasTexture_c503r"]
+atlas = ExtResource("2_5dj2f")
+region = Rect2(1049, 0, 999, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_70ipj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dj2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c503r")
+}],
+"loop": true,
+"name": &"elon",
+"speed": 5.0
+}]
 
 [node name="ElonMask" type="CharacterBody2D" unique_id=1535777038]
 script = ExtResource("1_oian4")
@@ -17,10 +35,11 @@ script = ExtResource("1_oian4")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_27ghy")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1817740685]
-position = Vector2(0.5, 0.4999981)
-scale = Vector2(0.28515628, 60.999996)
-texture = SubResource("GradientTexture1D_5dj2f")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=402165257]
+position = Vector2(368.25, 368.25)
+scale = Vector2(0.28173828, 0.28173828)
+sprite_frames = SubResource("SpriteFrames_70ipj")
+animation = &"elon"
 
 [node name="ObstacleCheck" type="Node2D" parent="." unique_id=1268803070]
 

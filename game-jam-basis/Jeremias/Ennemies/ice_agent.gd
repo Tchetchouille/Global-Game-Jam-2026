@@ -102,14 +102,14 @@ func turn_towards_player():
 func update_mask():
 	if mask != rgb.mask:
 		if rgb.mask < 3:
-			set_collision_mask_value(10 + mask, true)
-			$FloorCheck.set_collision_mask_value(10 + mask, true)
-			$DeathByWall.set_collision_mask_value(10 + mask, true)
+			set_collision_mask_value(9 + mask, true)
+			$FloorCheck.set_collision_mask_value(9 + mask, true)
+			$DeathByWall.set_collision_mask_value(9 + mask, true)
 		mask = rgb.mask
 		if rgb.mask < 3:
-			set_collision_mask_value(10 + mask, false)
-			$FloorCheck.set_collision_mask_value(10 + mask, false)
-			$DeathByWall.set_collision_mask_value(10 + mask, false)
+			set_collision_mask_value(9 + mask, false)
+			$FloorCheck.set_collision_mask_value(9 + mask, false)
+			$DeathByWall.set_collision_mask_value(9 + mask, false)
 
 func _on_idle_timer_timeout() -> void:
 	state = "roaming"
