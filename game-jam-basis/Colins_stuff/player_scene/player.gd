@@ -7,6 +7,8 @@ const DECELERATION = 2250.0
 const JUMP_VELOCITY = -750.0
 var dying = false
 var mask = 3
+var next_mask = 0
+signal change_RGB
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -57,11 +59,20 @@ func die():
 
 
 func change_mask():
-	if mask < 3:
-		set_collision_mask_value(10 + mask, true)
-	mask += 1
-	if mask > 3:
-		mask = 0
-	if mask < 3:
-		set_collision_mask_value(10 + mask, false)
-	
+	if $MaskCheck.has_overlapping_bodies() == false:
+		if mask < 3:
+			set_collision_mask_value(10 + mask, true)
+			
+		if next_mask < 3:
+			$MaskCheck.set_collision_mask_value(10 + next_mask, true)
+		mask = next_mask
+		next_mask += 1
+		if next_mask > 3:
+			next_mask = 0
+		if mask < 3:
+			set_collision_mask_value(10 + mask, false)
+		if next_mask < 3:
+			$MaskCheck.set_collision_mask_value(10 + next_mask, false)
+		change_RGB.emit()
+	else:
+		print("Something blocks you...")

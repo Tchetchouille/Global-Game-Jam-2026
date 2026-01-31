@@ -3,13 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="1_ds4yt"]
 [ext_resource type="Script" uid="uid://beoyfqrlmtml8" path="res://Jeremias/Level/rgb.gd" id="2_7urlj"]
 [ext_resource type="Texture2D" uid="uid://carwaymivooak" path="res://icon.svg" id="2_h8srh"]
+[ext_resource type="Material" uid="uid://csvfqtvkwhk86" path="res://Jeremias/sprite_rgb_material.tres" id="3_je4dx"]
 [ext_resource type="Script" uid="uid://duwuiq1tomkvm" path="res://Jeremias/Level/sprites.gd" id="4_mj4nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8srh"]
 size = Vector2(126, 126)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mj4nc"]
-blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ds4yt"]
 size = Vector2(1448, 147)
@@ -20,58 +18,55 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7urlj"]
 gradient = SubResource("Gradient_h8srh")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_je4dx"]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_36my3"]
-blend_mode = 1
-
 [node name="MainLevel" type="Node2D" unique_id=2071343104]
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("1_ds4yt")]
-position = Vector2(509, 360)
+position = Vector2(540, 5)
 
 [node name="RGB" type="Node2D" parent="." unique_id=943828338]
 script = ExtResource("2_7urlj")
 
-[node name="Blue" type="Parallax2D" parent="RGB" unique_id=1104443212]
+[node name="R" type="Parallax2D" parent="RGB" unique_id=1104443212]
 scroll_scale = Vector2(0.8, 0.8)
 
-[node name="Obstacle" type="StaticBody2D" parent="RGB/Blue" unique_id=1023228984]
+[node name="Obstacle" type="StaticBody2D" parent="RGB/R" unique_id=1023228984]
 position = Vector2(241, 183)
 collision_layer = 512
 
-[node name="Sprite2D" type="Sprite2D" parent="RGB/Blue/Obstacle" unique_id=126523840]
+[node name="Sprite2D" type="Sprite2D" parent="RGB/R/Obstacle" unique_id=126523840]
+material = ExtResource("3_je4dx")
 texture = ExtResource("2_h8srh")
+script = ExtResource("4_mj4nc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Blue/Obstacle" unique_id=860958974]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/R/Obstacle" unique_id=860958974]
 shape = SubResource("RectangleShape2D_h8srh")
 
-[node name="Obstacle2" type="StaticBody2D" parent="RGB/Blue" unique_id=400122681]
+[node name="Obstacle2" type="StaticBody2D" parent="RGB/R" unique_id=400122681]
 position = Vector2(917, 164)
 collision_layer = 512
 
-[node name="Sprite2D" type="Sprite2D" parent="RGB/Blue/Obstacle2" unique_id=632271964]
-material = SubResource("CanvasItemMaterial_mj4nc")
+[node name="Sprite2D" type="Sprite2D" parent="RGB/R/Obstacle2" unique_id=632271964]
+material = ExtResource("3_je4dx")
 texture = ExtResource("2_h8srh")
 script = ExtResource("4_mj4nc")
-modulation = Vector3(0.6, 0.07, 0.3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Blue/Obstacle2" unique_id=204798387]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/R/Obstacle2" unique_id=204798387]
 shape = SubResource("RectangleShape2D_h8srh")
 
-[node name="Floor2" type="StaticBody2D" parent="RGB/Blue" unique_id=884542986]
-position = Vector2(-42, 577)
+[node name="Floor2" type="StaticBody2D" parent="RGB/R" unique_id=884542986]
+position = Vector2(-40, 292)
 collision_layer = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Blue/Floor2" unique_id=1411466304]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/R/Floor2" unique_id=1411466304]
 position = Vector2(594, 76.5)
 shape = SubResource("RectangleShape2D_ds4yt")
 
-[node name="Sprite2D" type="Sprite2D" parent="RGB/Blue/Floor2" unique_id=2108698570]
+[node name="Sprite2D" type="Sprite2D" parent="RGB/R/Floor2" unique_id=2108698570]
+material = ExtResource("3_je4dx")
 position = Vector2(596, 74.75)
 scale = Vector2(5.65625, 150.5)
 texture = SubResource("GradientTexture1D_7urlj")
+script = ExtResource("4_mj4nc")
 
 [node name="Green" type="Parallax2D" parent="RGB" unique_id=435996086]
 
@@ -80,13 +75,16 @@ position = Vector2(241, 183)
 collision_layer = 1024
 
 [node name="Sprite2D" type="Sprite2D" parent="RGB/Green/Sprite2D" unique_id=218696768]
+material = ExtResource("3_je4dx")
 texture = ExtResource("2_h8srh")
+script = ExtResource("4_mj4nc")
+layer = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Green/Sprite2D" unique_id=983733279]
 shape = SubResource("RectangleShape2D_h8srh")
 
 [node name="Floor2" type="StaticBody2D" parent="RGB/Green" unique_id=236780064]
-position = Vector2(-42, 577)
+position = Vector2(-40, 292)
 collision_layer = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Green/Floor2" unique_id=241749648]
@@ -94,58 +92,69 @@ position = Vector2(594, 76.5)
 shape = SubResource("RectangleShape2D_ds4yt")
 
 [node name="Sprite2D" type="Sprite2D" parent="RGB/Green/Floor2" unique_id=1717116894]
+material = ExtResource("3_je4dx")
 position = Vector2(596, 74.75)
 scale = Vector2(5.65625, 150.5)
 texture = SubResource("GradientTexture1D_7urlj")
+script = ExtResource("4_mj4nc")
+layer = 1
 
 [node name="Obstacle2" type="StaticBody2D" parent="RGB/Green" unique_id=412141576]
 position = Vector2(917, 164)
 collision_layer = 1024
 
 [node name="Sprite2D" type="Sprite2D" parent="RGB/Green/Obstacle2" unique_id=1503474178]
-material = SubResource("CanvasItemMaterial_je4dx")
+material = ExtResource("3_je4dx")
 texture = ExtResource("2_h8srh")
 script = ExtResource("4_mj4nc")
-modulation = Vector3(0.3, 0.6, 0.07)
+layer = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Green/Obstacle2" unique_id=1044480754]
 shape = SubResource("RectangleShape2D_h8srh")
 
-[node name="Red" type="Parallax2D" parent="RGB" unique_id=673541259]
+[node name="B" type="Parallax2D" parent="RGB" unique_id=673541259]
 scroll_scale = Vector2(1.2, 1.2)
 
-[node name="Sprite2D" type="StaticBody2D" parent="RGB/Red" unique_id=720389086]
+[node name="Sprite2D" type="StaticBody2D" parent="RGB/B" unique_id=720389086]
 position = Vector2(241, 183)
 collision_layer = 2048
 
-[node name="Sprite2D" type="Sprite2D" parent="RGB/Red/Sprite2D" unique_id=1121015963]
+[node name="Sprite2D" type="Sprite2D" parent="RGB/B/Sprite2D" unique_id=1121015963]
+material = ExtResource("3_je4dx")
 texture = ExtResource("2_h8srh")
+script = ExtResource("4_mj4nc")
+layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Red/Sprite2D" unique_id=1149765064]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/B/Sprite2D" unique_id=1149765064]
 shape = SubResource("RectangleShape2D_h8srh")
 
-[node name="Floor" type="StaticBody2D" parent="RGB/Red" unique_id=63936319]
-position = Vector2(-42, 577)
+[node name="Floor" type="StaticBody2D" parent="RGB/B" unique_id=63936319]
+position = Vector2(-40, 292)
 collision_layer = 2048
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Red/Floor" unique_id=1218893922]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/B/Floor" unique_id=1218893922]
 position = Vector2(594, 76.5)
 shape = SubResource("RectangleShape2D_ds4yt")
 
-[node name="Sprite2D" type="Sprite2D" parent="RGB/Red/Floor" unique_id=614013017]
+[node name="Sprite2D" type="Sprite2D" parent="RGB/B/Floor" unique_id=614013017]
+material = ExtResource("3_je4dx")
 position = Vector2(596, 74.75)
 scale = Vector2(5.65625, 150.5)
 texture = SubResource("GradientTexture1D_7urlj")
+script = ExtResource("4_mj4nc")
+layer = 2
 
-[node name="Obstacle2" type="StaticBody2D" parent="RGB/Red" unique_id=23396493]
+[node name="Obstacle2" type="StaticBody2D" parent="RGB/B" unique_id=23396493]
 position = Vector2(917, 164)
 collision_layer = 2048
 
-[node name="Sprite2D" type="Sprite2D" parent="RGB/Red/Obstacle2" unique_id=1384585538]
-material = SubResource("CanvasItemMaterial_36my3")
+[node name="Sprite2D" type="Sprite2D" parent="RGB/B/Obstacle2" unique_id=1384585538]
+material = ExtResource("3_je4dx")
 texture = ExtResource("2_h8srh")
 script = ExtResource("4_mj4nc")
-modulation = Vector3(0.07, 0.3, 0.6)
+layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/Red/Obstacle2" unique_id=1167583751]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RGB/B/Obstacle2" unique_id=1167583751]
 shape = SubResource("RectangleShape2D_h8srh")
+
+[connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]

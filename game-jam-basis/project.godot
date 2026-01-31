@@ -54,6 +54,12 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_15="Ice"
+2d_physics/layer_16="Floor"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

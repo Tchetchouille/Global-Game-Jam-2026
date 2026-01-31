@@ -126,6 +126,9 @@ animations = [{
 radius = 42.0
 height = 388.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkfac"]
+size = Vector2(84, 388)
+
 [node name="Player" type="CharacterBody2D" unique_id=1087869672]
 collision_mask = 3584
 script = ExtResource("1_kkfac")
@@ -141,3 +144,10 @@ zoom = Vector2(0.5, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150375087]
 position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_kkfac")
+
+[node name="MaskCheck" type="Area2D" parent="." unique_id=2132102280]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaskCheck" unique_id=2103807794]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_kkfac")
