@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b1b2oqc0v2yep"]
+
+[ext_resource type="PackedScene" uid="uid://sevjw3igpcj" path="res://Jeremias/Level/Boss Battle/elon_mask.tscn" id="1_qtrae"]
+
+[node name="BossBattle" type="Node2D" unique_id=1956200531]
+
+[node name="ElonMask" parent="." unique_id=1535777038 instance=ExtResource("1_qtrae")]
+position = Vector2(569, 281)
