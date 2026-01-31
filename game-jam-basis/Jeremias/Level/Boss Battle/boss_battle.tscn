@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://b1b2oqc0v2yep"]
 
+[ext_resource type="PackedScene" uid="uid://sevjw3igpcj" path="res://Jeremias/Level/Boss Battle/elon_mask.tscn" id="1_qtrae"]
 [ext_resource type="Script" uid="uid://beoyfqrlmtml8" path="res://Jeremias/Level/rgb.gd" id="2_yxy6r"]
 [ext_resource type="Texture2D" uid="uid://ct8h6uymfshof" path="res://Colins_stuff/sprites/tile_sheet_brique_fond.png" id="3_if7uc"]
 [ext_resource type="Script" uid="uid://dx6xe4t73mtrx" path="res://Jeremias/Level/tiles.gd" id="4_2haej"]
@@ -7,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://covupaitt2xjp" path="res://Colins_stuff/player_scene/player.tscn" id="4_if7uc"]
 [ext_resource type="TileSet" uid="uid://bnipwpsl0faoh" path="res://TileSet/tileset_B.tres" id="5_c8bb7"]
 [ext_resource type="TileSet" uid="uid://t7j0bqhyn185" path="res://TileSet/tileset_G.tres" id="7_s28xs"]
-[ext_resource type="PackedScene" uid="uid://cvcfxk0einj7l" path="res://Jeremias/Ennemies/ice_agent.tscn" id="8_c8bb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lsgcl"]
 texture = ExtResource("3_if7uc")
@@ -73,6 +73,9 @@ sources/0 = SubResource("TileSetAtlasSource_lsgcl")
 
 [node name="BossBattle" type="Node2D" unique_id=1956200531]
 
+[node name="ElonMask" parent="." unique_id=1535777038 instance=ExtResource("1_qtrae")]
+position = Vector2(675, 177)
+
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("4_if7uc")]
 position = Vector2(271, 313)
 unlocked_masks = 3
@@ -110,8 +113,5 @@ tile_map_data = PackedByteArray("AAAAAAQAAAAAAAEAAAABAAQAAAAAAAEAAAACAAQAAAAAAAE
 tile_set = SubResource("TileSet_880lw")
 script = ExtResource("4_2haej")
 layer = 3
-
-[node name="IceAgent" parent="." unique_id=434924876 instance=ExtResource("8_c8bb7")]
-position = Vector2(895, 182)
 
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
