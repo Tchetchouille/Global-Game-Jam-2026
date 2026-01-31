@@ -122,8 +122,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fd4r"]
-size = Vector2(64, 317)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkfac"]
+radius = 42.0
+height = 388.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1087869672]
 collision_mask = 3584
@@ -131,12 +132,12 @@ script = ExtResource("1_kkfac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1635316690]
 sprite_frames = SubResource("SpriteFrames_gxg8e")
-animation = &"change_z"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373101039]
-position = Vector2(-7, 39.5)
-shape = SubResource("RectangleShape2D_2fd4r")
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=113379081]
 position = Vector2(2, 0)
 zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150375087]
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_kkfac")

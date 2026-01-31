@@ -29,7 +29,7 @@ blend_mode = 1
 [node name="MainLevel" type="Node2D" unique_id=2071343104]
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("1_ds4yt")]
-position = Vector2(492, 214)
+position = Vector2(509, 360)
 
 [node name="RGB" type="Node2D" parent="." unique_id=943828338]
 script = ExtResource("2_7urlj")
