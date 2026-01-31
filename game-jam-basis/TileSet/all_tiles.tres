@@ -1,0 +1,77 @@
+[gd_resource type="TileSet" format=3 uid="uid://bebvx4ea175oe"]
+
+[ext_resource type="Texture2D" uid="uid://ct8h6uymfshof" path="res://Colins_stuff/sprites/tile_sheet_brique_fond.png" id="1_u3dtr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hhec"]
+texture = ExtResource("1_u3dtr")
+texture_region_size = Vector2i(128, 128)
+0:0/animation_columns = 2
+0:0/animation_frame_0/duration = 0.8
+0:0/animation_frame_1/duration = 0.8
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/animation_columns = 2
+0:1/animation_frame_0/duration = 0.8
+0:1/animation_frame_1/duration = 0.8
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:2/animation_columns = 2
+0:2/animation_frame_0/duration = 0.8
+0:2/animation_frame_1/duration = 0.8
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:3/animation_columns = 2
+0:3/animation_frame_0/duration = 0.8
+0:3/animation_frame_1/duration = 0.8
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:4/animation_columns = 2
+0:4/animation_frame_0/duration = 0.8
+0:4/animation_frame_1/duration = 0.8
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:5/animation_columns = 2
+0:5/animation_frame_0/duration = 0.8
+0:5/animation_frame_1/duration = 0.8
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:6/animation_columns = 2
+0:6/animation_frame_0/duration = 0.8
+0:6/animation_frame_1/duration = 0.8
+0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:7/animation_columns = 2
+0:7/animation_frame_0/duration = 0.8
+0:7/animation_frame_1/duration = 0.8
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:8/animation_columns = 2
+0:8/animation_frame_0/duration = 0.8
+0:8/animation_frame_1/duration = 0.8
+0:8/0 = 0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:9/animation_columns = 2
+0:9/animation_frame_0/duration = 0.8
+0:9/animation_frame_1/duration = 0.8
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:10/animation_columns = 2
+0:10/animation_frame_0/duration = 0.8
+0:10/animation_frame_1/duration = 0.8
+0:10/0 = 0
+0:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:11/animation_columns = 2
+0:11/animation_frame_0/duration = 0.8
+0:11/animation_frame_1/duration = 0.8
+0:11/0 = 0
+0:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:12/animation_columns = 2
+0:12/animation_frame_0/duration = 0.8
+0:12/animation_frame_1/duration = 0.8
+0:12/0 = 0
+0:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[resource]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 3586
+sources/0 = SubResource("TileSetAtlasSource_3hhec")
