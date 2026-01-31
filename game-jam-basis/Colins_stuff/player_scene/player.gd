@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var unlocked_masks = 0
 
 const SPEED = 1200.0
 const ACCELERATION = 450.0
@@ -9,18 +10,18 @@ var dying = false
 var mask = 3
 var next_mask = 0
 var mask_textures = [
+	null,
 	preload("res://Colins_stuff/sprites/mask_red.png"),
 	preload("res://Colins_stuff/sprites/mask_green.png"),
-	preload("res://Colins_stuff/sprites/mask_blue.png"),
-	null
+	preload("res://Colins_stuff/sprites/mask_blue.png")
 ]
 var filter_colors = [
+	Color(0.0, 0.0, 0.0, 0.0),
 	Color(0.72, 0.12, 0.28, 0.3),
 	Color(0.28, 0.72, 0.12, 0.3),
 	Color(0.12, 0.28, 0.72, 0.3),
-	Color(0.0, 0.0, 0.0, 0.0),
 ]
-signal change_RGB(nb_mask)
+signal change_RGB(current_mask)
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -74,19 +75,19 @@ func die():
 
 func change_mask():
 	if $MaskCheck.has_overlapping_bodies() == false:
-		if mask < 3:
-			set_collision_mask_value(10 + mask, true)
-		if next_mask < 3:
-			$MaskCheck.set_collision_mask_value(10 + next_mask, true)
+		if mask < unlocked_masks:
+			set_collision_mask_value(9 + mask, true)
+		if next_mask < unlocked_masks:
+			$MaskCheck.set_collision_mask_value(9 + next_mask, true)
 		mask = next_mask
 		next_mask += 1
-		if next_mask > 3:
+		if next_mask > unlocked_masks:
 			next_mask = 0
-		if mask < 3:
-			set_collision_mask_value(10 + mask, false)
-		if next_mask < 3:
-			$MaskCheck.set_collision_mask_value(10 + next_mask, false)
-		change_RGB.emit()
+		if mask < unlocked_masks:
+			set_collision_mask_value(9 + mask, false)
+		if next_mask < unlocked_masks:
+			$MaskCheck.set_collision_mask_value(9 + next_mask, false)
+		change_RGB.emit(mask)
 	else:
 		print("Something blocks you...")
 	$MaskSprite.texture = mask_textures[mask]
