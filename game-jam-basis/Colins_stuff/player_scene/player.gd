@@ -20,7 +20,7 @@ var filter_colors = [
 	Color(0.12, 0.28, 0.72, 0.3),
 	Color(0.0, 0.0, 0.0, 0.0),
 ]
-signal change_RGB
+signal change_RGB(nb_mask)
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 

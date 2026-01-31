@@ -1,15 +1,17 @@
 extends Area2D
-
-@onready var label: Label = $"../Label"
+@onready var label: Label = $"../LabelRouge"
 @onready var text_timer: Timer = $"../TextTimer"
 var APPEAR = 1
 var ENTERED = false
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+
+func _on_body_entered(body: Node2D) -> void:
+	APPEAR = 1
+	ENTERED = true
+	label.text = "Récupérer (E)"
+	label.self_modulate.a =0.01
+	text_timer.start()
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and ENTERED:
 		APPEAR = 1
@@ -18,15 +20,6 @@ func _process(delta: float) -> void:
 	if label.self_modulate.a > 0:
 		label.self_modulate.a += 0.03*APPEAR
 	
-
-
-func _on_body_entered(body: Node2D) -> void:
-	print("BOOOOOOOOOOOOOOOOOOOOOOONJOURRRRRRRRRR")
-	APPEAR = 1
-	ENTERED = true
-	label.text = "Écouter (E)"
-	label.self_modulate.a =0.01
-	text_timer.start()
 func _on_body_exited(body: Node2D) -> void:
 	APPEAR = -1
 	ENTERED = false
