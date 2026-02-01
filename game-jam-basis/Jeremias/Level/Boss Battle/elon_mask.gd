@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 var rng = RandomNumberGenerator.new()
 
+var rgb_melon = preload("res://Jeremias/Level/Boss Battle/rgb_melon.tscn")
+@onready var player = $"../Player"
+
 const MAX_X_SPEED = 300
 const MAX_Y_SPEED = 300
 var min_x_speed = -MAX_X_SPEED
@@ -31,15 +34,28 @@ func _physics_process(_delta: float) -> void:
 func check_obstacles():
 	if $ObstacleCheck/LeftCheck.is_colliding():
 		min_x_speed = 0
+	else:
+		min_x_speed = -MAX_X_SPEED
 	if $ObstacleCheck/RightCheck.is_colliding():
 		max_x_speed = 0
+	else:
+		max_x_speed = MAX_X_SPEED
 	if $ObstacleCheck/UpCheck.is_colliding():
 		min_y_speed = 0
+	else:
+		min_y_speed = -MAX_Y_SPEED
 	if $ObstacleCheck/DownCheck.is_colliding():
 		max_y_speed = 0
+	else:
+		max_y_speed = MAX_Y_SPEED
 
 func attack():
 	pass
 
 func _on_attack_timer_timeout() -> void:
-	pass # Replace with function body.
+	var projectile = rgb_melon.instantiate()
+	projectile.global_position = position
+	projectile.direction = (player.global_position - global_position)
+	projectile.direction.normalized()
+	print(projectile.direction)
+	$"..".add_child(projectile)

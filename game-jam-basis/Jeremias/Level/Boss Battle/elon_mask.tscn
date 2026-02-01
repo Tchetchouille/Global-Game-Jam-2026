@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://cfg7xlsg5lau1" path="res://Jeremias/Level/Boss Battle/elon_mask.gd" id="1_oian4"]
 [ext_resource type="Texture2D" uid="uid://br5qlgo55rv8m" path="res://Colins_stuff/sprites/spritesheet_elon.png" id="2_5dj2f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ghy"]
-size = Vector2(72, 61)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dj2f"]
 atlas = ExtResource("2_5dj2f")
 region = Rect2(35, 0, 1006, 1024)
@@ -28,12 +25,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ElonMask" type="CharacterBody2D" unique_id=1535777038]
-script = ExtResource("1_oian4")
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dj2f"]
+radius = 107.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659995199]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_27ghy")
+[node name="ElonMask" type="CharacterBody2D" unique_id=1535777038]
+collision_layer = 128
+collision_mask = 3584
+script = ExtResource("1_oian4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=402165257]
 scale = Vector2(0.3, 0.3)
@@ -47,23 +45,27 @@ target_position = Vector2(0, 300)
 collision_mask = 3584
 
 [node name="LeftCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1965838104]
-target_position = Vector2(-150, 1)
+target_position = Vector2(-200, 1)
 collision_mask = 3584
 
 [node name="UpCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1985351111]
-target_position = Vector2(0, -150)
+target_position = Vector2(0, -200)
 collision_mask = 3584
 
 [node name="DownCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1340679427]
-target_position = Vector2(0, 150)
+target_position = Vector2(0, 200)
 collision_mask = 3584
 
 [node name="RightCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1603363678]
-target_position = Vector2(150, 1)
+target_position = Vector2(200, 1)
 collision_mask = 3584
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1663915088]
 wait_time = 2.0
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659995199]
+position = Vector2(-8, -26)
+shape = SubResource("CircleShape2D_5dj2f")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
