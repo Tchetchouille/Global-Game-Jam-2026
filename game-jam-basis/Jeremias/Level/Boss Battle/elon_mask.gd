@@ -58,4 +58,12 @@ func _on_attack_timer_timeout() -> void:
 	projectile.direction = (player.global_position - global_position)
 	projectile.direction.normalized()
 	print(projectile.direction)
-	$"..".add_child(projectile)
+	var layer = rng.randi_range(1, 3)
+	projectile.layer = layer
+	match layer:
+		1:
+			$"../RGB/R".add_child(projectile)
+		2:
+			$"../RGB/G".add_child(projectile)
+		3:
+			$"../RGB/B".add_child(projectile)
