@@ -22,8 +22,10 @@ func _process(delta: float) -> void:
 			print($"../Player".unlocked_masks)
 			
 			var mask = $"../Player".mask
-			while mask < 3:
+			while $"../Player".mask < 3 or mask > 10:
 				mask+=1
+				print("Masque 0")
+				print(mask)
 				$"../Player".change_mask()
 			$"../LabelBleu".text = "Appuie sur SHIFT pour changer de masque"
 			APPEAR = -1

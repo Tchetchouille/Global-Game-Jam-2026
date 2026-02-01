@@ -37,7 +37,7 @@ func _on_body_entered(body: Node2D) -> void:
 				animated_sprite = child
 		#animated_sprite.pause()
 		animated_sprite.play("walk")
-		body.velocity.x = 300.0
+		body.velocity.x = 200.0
 		$Timer.start()
 
 
