@@ -1,6 +1,6 @@
 extends Button
 
-@export var ratio = 0.03
+@export var ratio = 0.008
 
 func _process(delta: float) -> void:
 	resize_text()

@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://bc5xaxhnkctet"]
-
-[node name="GameMusic" type="AudioStreamPlayer" unique_id=684163057]
-autoplay = true

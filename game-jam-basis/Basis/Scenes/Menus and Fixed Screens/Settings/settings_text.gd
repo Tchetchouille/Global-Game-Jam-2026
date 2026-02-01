@@ -1,6 +1,6 @@
 extends RichTextLabel
 
-@export var ratio = 0.1
+@export var ratio = 0.01
 
 func _process(delta: float) -> void:
 	resize_text()

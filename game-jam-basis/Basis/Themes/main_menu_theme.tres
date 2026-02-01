@@ -1,5 +1,28 @@
 [gd_resource type="Theme" format=3 uid="uid://ks7w64dlvxp7"]
 
+[ext_resource type="FontFile" uid="uid://dr2dg1sgiylf1" path="res://Colins_stuff/fonts/Anarchist Mustache.ttf" id="1_7hey6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hey6"]
+border_width_right = 10
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp3bj"]
+bg_color = Color(0, 0, 0, 1)
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [resource]
 Button/font_sizes/font_size = 75
+Button/fonts/font = ExtResource("1_7hey6")
+Button/styles/hover = SubResource("StyleBoxFlat_7hey6")
+Button/styles/normal = SubResource("StyleBoxFlat_wp3bj")
 RichTextLabel/font_sizes/normal_font_size = 150

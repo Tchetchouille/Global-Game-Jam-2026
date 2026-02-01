@@ -15,13 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Game Jam Basis"
-run/main_scene="uid://covupaitt2xjp"
+run/main_scene="uid://ch8r62r4ujff8"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-MenuMusic="*res://Basis/Scenes/Autoloads/game_music.tscn"
+MenuMusic="*res://Basis/Scenes/Autoloads/menu_music.tscn"
 RMusic="*uid://dvx7jbikljhb3"
 GMusic="*uid://bysn53oca88ie"
 BMusic="*uid://dkx7fd88tpis"

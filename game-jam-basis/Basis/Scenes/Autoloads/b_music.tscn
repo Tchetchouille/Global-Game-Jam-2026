@@ -4,4 +4,3 @@
 
 [node name="BMusic" type="AudioStreamPlayer" unique_id=1041364348]
 stream = ExtResource("1_asvgx")
-autoplay = true
