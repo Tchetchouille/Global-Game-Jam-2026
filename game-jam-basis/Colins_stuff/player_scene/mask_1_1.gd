@@ -21,10 +21,9 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("BOOOOOOOOOOOOOOOOOOOOOOONJOURRRRRRRRRR")
 	APPEAR = 1
 	ENTERED = true
-	label.text = "Écouter (E)"
+	label.text = "Lire (E)"
 	label.self_modulate.a =0.01
 	text_timer.start()
 func _on_body_exited(body: Node2D) -> void:
