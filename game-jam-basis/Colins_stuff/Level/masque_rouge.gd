@@ -5,6 +5,11 @@ var APPEAR = 1
 var ENTERED = false
 var picked = false
 
+# A des fins de débugages!!! 
+# /!\ Supprimer!!!!!!!
+func _ready() -> void:
+	$"../Player".unlocked_masks+=1
+
 func _on_body_entered(body: Node2D) -> void:
 	if !picked:
 		APPEAR = 1
