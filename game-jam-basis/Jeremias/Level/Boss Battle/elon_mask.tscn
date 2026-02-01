@@ -86,7 +86,7 @@ target_position = Vector2(200, 1)
 collision_mask = 3584
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1663915088]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659995199]
