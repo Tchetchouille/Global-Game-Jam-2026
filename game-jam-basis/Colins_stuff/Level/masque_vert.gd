@@ -1,22 +1,10 @@
 extends Area2D
-@onready var label: Label = $"../LabelRouge"
+@onready var label: Label = $"../LabelVert"
 @onready var text_timer: Timer = $"../TextTimer"
 var APPEAR = 1
 var ENTERED = false
 var picked = false
 
-
-var positions = [
-	Vector2(-14,12),
-	Vector2(7034, -1564),
-	Vector2(14051, -2376),
-	Vector2()
-]
-
-# A des fins de débugages!!! 
-# /!\ Supprimer!!!!!!!
-func _ready() -> void:
-	$"../Player".unlocked_masks+=1
 func _on_body_entered(body: Node2D) -> void:
 	if !picked:
 		APPEAR = 1
@@ -30,7 +18,7 @@ func _process(delta: float) -> void:
 	if !picked:
 		if Input.is_action_just_pressed("interact") and ENTERED:
 			$"../Player".unlocked_masks+=1
-			$"../LabelRouge".text = "Appuie sur SHIFT pour changer de masque"
+			$"../LabelVert".text = "Appuie sur SHIFT pour changer de masque"
 			APPEAR = -1
 			$Sprite2D.queue_free()
 			picked = true

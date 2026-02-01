@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://iv5w6uxoal6j" path="res://Colins_stuff/Level/masque_rouge.gd" id="8_3pows"]
 [ext_resource type="Texture2D" uid="uid://n5ht068hjcas" path="res://Colins_stuff/sprites/mask_red.png" id="8_3q8ky"]
 [ext_resource type="Texture2D" uid="uid://dy2fewy5sukle" path="res://Colins_stuff/sprites/essai_motif.png" id="10_tt1xn"]
+[ext_resource type="Texture2D" uid="uid://uyqkmxtbuh0f" path="res://Colins_stuff/sprites/mask_green.png" id="11_1wm1a"]
+[ext_resource type="Script" uid="uid://jlyq3x8ohetu" path="res://Colins_stuff/Level/masque_vert.gd" id="11_okb27"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vyn4e"]
 
@@ -23,13 +25,10 @@ size = Vector2(160, 131)
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("2_3q76x")]
 z_index = 3
-position = Vector2(4629, -4250)
+position = Vector2(14651, -2376)
 
 [node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
 position = Vector2(4, 0)
-
-[node name="IceAgent" parent="." unique_id=434924876 instance=ExtResource("3_3q76x")]
-position = Vector2(-1692, -841)
 
 [node name="Killzone" parent="." unique_id=133941148 instance=ExtResource("4_r7fvy")]
 position = Vector2(701, 853)
@@ -67,7 +66,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="MasqueRouge" type="Area2D" parent="." unique_id=397235351]
-position = Vector2(7036, -1564)
+position = Vector2(7034, -1564)
 script = ExtResource("8_3pows")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MasqueRouge" unique_id=381640697]
@@ -122,8 +121,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="MasqueVert" type="Area2D" parent="." unique_id=756854415]
+position = Vector2(15230, -1828)
+script = ExtResource("11_okb27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MasqueVert" unique_id=553306551]
+position = Vector2(14, 8)
+shape = SubResource("RectangleShape2D_3pows")
+
+[node name="Sprite2D" type="Sprite2D" parent="MasqueVert" unique_id=1956218127]
+position = Vector2(-11, 118)
+texture = ExtResource("11_1wm1a")
+
+[node name="LabelVert" type="Label" parent="." unique_id=1692051607]
+offset_left = 14794.0
+offset_top = -2435.0
+offset_right = 15731.0
+offset_bottom = -1968.0
+theme_override_fonts/font = ExtResource("7_nmlux")
+theme_override_font_sizes/font_size = 128
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Ennemies" type="Node" parent="." unique_id=777443193]
+
+[node name="IceAgent" parent="Ennemies" unique_id=434924876 instance=ExtResource("3_3q76x")]
+position = Vector2(17279, -2091)
+
+[node name="IceAgent2" parent="Ennemies" unique_id=1146691621 instance=ExtResource("3_3q76x")]
+position = Vector2(19438, -2546)
+
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
 [connection signal="body_entered" from="MasqueRouge" to="MasqueRouge" method="_on_body_entered"]
 [connection signal="body_exited" from="MasqueRouge" to="MasqueRouge" method="_on_body_exited"]
+[connection signal="body_entered" from="MasqueVert" to="MasqueVert" method="_on_body_entered"]
+[connection signal="body_exited" from="MasqueVert" to="MasqueVert" method="_on_body_exited"]
