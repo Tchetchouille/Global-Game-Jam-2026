@@ -53,7 +53,7 @@ func check_obstacles():
 		max_y_speed = MAX_Y_SPEED
 
 func _on_attack_timer_timeout() -> void:
-	$AttackTimer.wait_time = 2.0
+	$AttackTimer.wait_time = 15.0
 	var projectile = rgb_melon.instantiate()
 	projectile.global_position = position
 	projectile.direction = (player.global_position - global_position)

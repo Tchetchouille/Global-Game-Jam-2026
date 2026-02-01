@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://bnipwpsl0faoh" path="res://TileSet/tileset_B.tres" id="5_c8bb7"]
 [ext_resource type="TileSet" uid="uid://cgi6mnr6egyhc" path="res://TileSet/tileset_R.tres" id="5_s28xs"]
 [ext_resource type="TileSet" uid="uid://t7j0bqhyn185" path="res://TileSet/tileset_G.tres" id="7_s28xs"]
+[ext_resource type="PackedScene" uid="uid://cinqmbbs67ssp" path="res://Colins_stuff/Level/cutscene.tscn" id="10_hj4re"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s28xs"]
 size = Vector2(3747, 2230)
@@ -62,6 +63,9 @@ shape = SubResource("RectangleShape2D_s28xs")
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("4_if7uc")]
 position = Vector2(-13, -400)
 unlocked_masks = 3
+
+[node name="Cutscene" parent="." unique_id=1936703176 instance=ExtResource("10_hj4re")]
+position = Vector2(-18, 49)
 
 [connection signal="body_entered" from="TransitionToFight" to="." method="_on_transition_to_fight_body_entered"]
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cinqmbbs67ssp"]
+
+[ext_resource type="Script" uid="uid://ccaiqrddd2c5h" path="res://Colins_stuff/Level/cutscene.gd" id="1_kf4xm"]
+[ext_resource type="FontFile" uid="uid://dr2dg1sgiylf1" path="res://Colins_stuff/fonts/Anarchist Mustache.ttf" id="2_kt8lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut02k"]
+size = Vector2(327, 283)
+
+[node name="Cutscene" type="Area2D" unique_id=1936703176]
+collision_mask = 3585
+script = ExtResource("1_kf4xm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1630428589]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ut02k")
+
+[node name="Dialog" type="Label" parent="." unique_id=1057534433]
+offset_left = -325.0
+offset_top = 33.0
+offset_right = 384.0
+offset_bottom = 353.0
+theme_override_fonts/font = ExtResource("2_kt8lk")
+theme_override_font_sizes/font_size = 96
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1628480819]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
