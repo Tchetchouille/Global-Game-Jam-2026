@@ -346,6 +346,9 @@ script = ExtResource("20_7nl04")
 position = Vector2(29, 214)
 shape = SubResource("RectangleShape2D_2a3kw")
 
+[node name="Timer" type="Timer" parent="Transition" unique_id=1218309116]
+one_shot = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=224253921]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1764640118]
@@ -372,3 +375,4 @@ color = Color(0, 0, 0, 0)
 [connection signal="body_entered" from="StopCollision" to="StopCollision" method="_on_body_entered"]
 [connection signal="timeout" from="StopCollision/Timer" to="StopCollision" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Transition" to="Transition" method="_on_body_entered"]
+[connection signal="timeout" from="Transition/Timer" to="Transition" method="_on_timer_timeout"]
