@@ -17,7 +17,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vyn4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck2qm"]
-size = Vector2(417, 252)
+size = Vector2(417, 242)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pows"]
 size = Vector2(160, 131)
@@ -44,18 +44,18 @@ position = Vector2(701, 853)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1675048387]
 shape = SubResource("WorldBoundaryShape2D_vyn4e")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1211292851]
+[node name="Mask11" type="Area2D" parent="." unique_id=1211292851]
 position = Vector2(686, 156)
 collision_layer = 3585
 collision_mask = 3585
 script = ExtResource("5_ck2qm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1905262483]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mask11" unique_id=1905262483]
 visibility_layer = 3585
 position = Vector2(-24, -46)
 shape = SubResource("RectangleShape2D_ck2qm")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=552314358]
+[node name="Sprite2D" type="Sprite2D" parent="Mask11" unique_id=552314358]
 z_index = 1
 position = Vector2(-212.99995, -428.99997)
 scale = Vector2(0.6673387, 0.66733867)
@@ -181,12 +181,62 @@ one_shot = true
 [node name="IceAgent2" parent="." unique_id=1253540957 instance=ExtResource("3_3q76x")]
 position = Vector2(21274, -3312)
 
+[node name="Mask12" type="Area2D" parent="." unique_id=1402705045]
+position = Vector2(13543, -1379)
+collision_layer = 3585
+collision_mask = 3585
+script = ExtResource("5_ck2qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mask12" unique_id=1297814520]
+visibility_layer = 3585
+position = Vector2(-24, -51)
+shape = SubResource("RectangleShape2D_ck2qm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mask12" unique_id=1362996686]
+modulate = Color(1, 1, 0.11764706, 1)
+z_index = 1
+position = Vector2(-212.99995, -428.99997)
+scale = Vector2(0.6673387, 0.66733867)
+texture = ExtResource("6_smija")
+
+[node name="Label" type="Label" parent="Mask12" unique_id=919911935]
+z_index = 2
+offset_left = -465.0
+offset_top = -816.0
+offset_right = 461.0
+offset_bottom = -443.0
+theme_override_colors/font_color = Color(0.43560833, 0.12979612, 0.15438578, 1)
+theme_override_fonts/font = ExtResource("7_nmlux")
+theme_override_font_sizes/font_size = 128
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Node" type="Node" parent="." unique_id=1852015633]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node" unique_id=830196855]
+modulate = Color(0.9870524, 0.9456635, 0.96798104, 1)
+z_index = 1
+position = Vector2(3619, -1288.0001)
+scale = Vector2(0.179, 0.179)
+texture = ExtResource("6_smija")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node" unique_id=2057245220]
+modulate = Color(1, 0.49803922, 0.19215687, 1)
+z_index = 1
+position = Vector2(4457, -1287)
+scale = Vector2(0.1785956, 0.17859559)
+texture = ExtResource("6_smija")
+
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="Mask11" to="Mask11" method="_on_body_entered"]
+[connection signal="body_exited" from="Mask11" to="Mask11" method="_on_body_exited"]
 [connection signal="body_entered" from="MasqueRouge" to="MasqueRouge" method="_on_body_entered"]
 [connection signal="body_exited" from="MasqueRouge" to="MasqueRouge" method="_on_body_exited"]
 [connection signal="body_entered" from="MasqueVert" to="MasqueVert" method="_on_body_entered"]
 [connection signal="body_exited" from="MasqueVert" to="MasqueVert" method="_on_body_exited"]
 [connection signal="body_entered" from="Cutscene" to="Cutscene" method="_on_body_entered"]
 [connection signal="timeout" from="Cutscene/Timer" to="Cutscene" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Mask12" to="Mask12" method="_on_body_entered"]
+[connection signal="body_exited" from="Mask12" to="Mask12" method="_on_body_exited"]
