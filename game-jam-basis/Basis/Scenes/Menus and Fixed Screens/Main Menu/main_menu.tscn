@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://ch8r62r4ujff8"]
 
 [ext_resource type="Theme" uid="uid://ks7w64dlvxp7" path="res://Basis/Themes/main_menu_theme.tres" id="1_7av57"]
-[ext_resource type="Texture2D" uid="uid://de8fhaya786g5" path="res://Colins_stuff/sprites/menu_background.png" id="1_o8jmd"]
+[ext_resource type="Texture2D" uid="uid://mlr0lvrclrqi" path="res://Colins_stuff/sprites/home_screen.png" id="1_o8jmd"]
 [ext_resource type="Script" uid="uid://c3bta6viqadqm" path="res://Basis/Scenes/Menus and Fixed Screens/Main Menu/title.gd" id="2_rrvhe"]
+[ext_resource type="FontFile" uid="uid://dr2dg1sgiylf1" path="res://Colins_stuff/fonts/Anarchist Mustache.ttf" id="3_g58xb"]
 [ext_resource type="Script" uid="uid://d10axnuoq2sxa" path="res://Basis/Scenes/Menus and Fixed Screens/Main Menu/buttons.gd" id="3_jb0cv"]
 
 [node name="MainMenu" type="Control" unique_id=464944383]
@@ -21,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_o8jmd")
-expand_mode = 5
+expand_mode = 2
 
 [node name="MarginContainer" type="HBoxContainer" parent="." unique_id=1642741229]
 layout_mode = 1
@@ -35,22 +36,18 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TopMargin" type="Control" parent="MarginContainer/VBoxContainer" unique_id=768590834]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-
 [node name="Title" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1518274599]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 theme = ExtResource("1_7av57")
+theme_override_fonts/normal_font = ExtResource("3_g58xb")
 bbcode_enabled = true
-text = "[wave amp=50.0 freq=6.0 connected=1]GAME NAME[/wave]"
+text = "[wave amp=50.0 freq=6.0 connected=1]CECI N'EST PAS UN JEU POLITIQUE[/wave]"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 script = ExtResource("2_rrvhe")
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1404342479]
@@ -66,7 +63,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 0.7
 
 [node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=2110786790]
 layout_mode = 2
@@ -113,12 +110,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_7av57")
 text = "QUIT"
-
-[node name="RightMargin" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=439654808]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
 
 [node name="BottomMargin" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1647693407]
 layout_mode = 2

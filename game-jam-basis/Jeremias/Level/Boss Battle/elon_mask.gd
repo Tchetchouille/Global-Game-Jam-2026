@@ -53,6 +53,7 @@ func check_obstacles():
 		max_y_speed = MAX_Y_SPEED
 
 func _on_attack_timer_timeout() -> void:
+	$AttackTimer.wait_time = 2.0
 	var projectile = rgb_melon.instantiate()
 	projectile.global_position = position
 	projectile.direction = (player.global_position - global_position)
@@ -72,7 +73,7 @@ func _on_attack_timer_timeout() -> void:
 func _on_melon_check_body_entered(body: Node2D) -> void:
 	print(body.get_node("DeathByWall").can_explode_timer)
 	if body.get_node("DeathByWall").can_explode_timer:
-		health -= 100
+		health -= 25
 		if health <= 0:
 			die()
 
