@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://cc5knnl4x2pyb"]
 
-[ext_resource type="Script" path="res://Jeremias/Level/Boss Battle/rgb_melon.gd" id="1_h62bq"]
+[ext_resource type="Script" uid="uid://03hyoksvro5a" path="res://Jeremias/Level/Boss Battle/rgb_melon.gd" id="1_h62bq"]
 [ext_resource type="Texture2D" uid="uid://ikw7yvl0v0tl" path="res://Colins_stuff/sprites/melon.png" id="1_orytd"]
 [ext_resource type="Texture2D" uid="uid://ca75jeho36sfq" path="res://Colins_stuff/sprites/watermelon.png" id="2_0do5n"]
 [ext_resource type="Material" uid="uid://csvfqtvkwhk86" path="res://Jeremias/Materials/sprite_rgb_material.tres" id="2_4uuuh"]
 [ext_resource type="Texture2D" uid="uid://byiv60sx2kx4s" path="res://Colins_stuff/sprites/mask_fruit.png" id="2_h62bq"]
 [ext_resource type="Texture2D" uid="uid://ce0og6nxkoqol" path="res://Colins_stuff/sprites/explosion_sprite_sheet.png" id="3_4uuuh"]
-[ext_resource type="Script" path="res://Jeremias/Level/Boss Battle/melon_death_by_wall.gd" id="5_svy2q"]
-[ext_resource type="Script" uid="uid://bxd6ppdi531tg" path="res://Jeremias/Level/Boss Battle/melon_kill.gd" id="8_ixbbk"]
+[ext_resource type="Script" uid="uid://crrrjraukulo" path="res://Jeremias/Level/Boss Battle/melon_death_by_wall.gd" id="5_svy2q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixbbk"]
 atlas = ExtResource("3_4uuuh")
@@ -123,9 +122,6 @@ radius = 56.0357
 [sub_resource type="CircleShape2D" id="CircleShape2D_op6yw"]
 radius = 50.48762
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_svy2q"]
-radius = 48.010414
-
 [node name="RGBMelon" type="CharacterBody2D" unique_id=1154489863]
 z_index = -1
 collision_layer = 16
@@ -160,11 +156,8 @@ shape = SubResource("CircleShape2D_op6yw")
 one_shot = true
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=129790157]
-script = ExtResource("8_ixbbk")
+[node name="Timer" type="Timer" parent="." unique_id=1889631878]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1362258652]
-shape = SubResource("CircleShape2D_svy2q")
-
+[connection signal="body_entered" from="DeathByWall" to="DeathByWall" method="_on_body_entered"]
 [connection signal="timeout" from="ActivationTimer" to="DeathByWall" method="_on_activation_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="DeathByWall" method="_on_timer_timeout"]

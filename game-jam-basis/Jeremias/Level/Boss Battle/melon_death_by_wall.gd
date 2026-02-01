@@ -3,6 +3,7 @@ extends Area2D
 var dead = false
 var can_explode_timer = false
 var can_explode_layer = true
+@onready var timer: Timer = $"../Timer"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,3 +19,17 @@ func _process(delta: float) -> void:
 
 func _on_activation_timer_timeout() -> void:
 	can_explode_timer = true
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player" and not dead and can_explode_layer:
+		body.die()
+		print("You died")
+		Engine.time_scale = 0.7
+		timer.start()
+
+
+func _on_timer_timeout() -> void:
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene() # Replace with function body.
+		
