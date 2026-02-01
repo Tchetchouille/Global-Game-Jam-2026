@@ -22,6 +22,7 @@ gradient = SubResource("Gradient_h8srh")
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("1_ds4yt")]
 position = Vector2(540, 5)
+unlocked_masks = 3
 
 [node name="RGB" type="Node2D" parent="." unique_id=943828338]
 script = ExtResource("2_7urlj")

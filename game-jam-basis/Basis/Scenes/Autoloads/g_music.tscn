@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bysn53oca88ie"]
+
+[ext_resource type="AudioStream" uid="uid://b0jpfwynpowlk" path="res://Basis/Musics/rockloop3.mp3" id="1_p6s2t"]
+
+[node name="GMusic" type="AudioStreamPlayer" unique_id=2065254139]
+stream = ExtResource("1_p6s2t")
+autoplay = true

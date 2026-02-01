@@ -21,7 +21,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameMusic="*res://Basis/Scenes/Autoloads/game_music.tscn"
+MenuMusic="*res://Basis/Scenes/Autoloads/game_music.tscn"
+RMusic="*uid://dvx7jbikljhb3"
+GMusic="*uid://bysn53oca88ie"
+BMusic="*uid://dkx7fd88tpis"
 
 [display]
 

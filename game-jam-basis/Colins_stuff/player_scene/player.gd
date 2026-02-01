@@ -21,6 +21,12 @@ var filter_colors = [
 	Color(0.28, 0.72, 0.12, 0.3),
 	Color(0.12, 0.28, 0.72, 0.3),
 ]
+var mask_musics = [
+	null,
+	RMusic,
+	GMusic,
+	BMusic
+]
 signal change_RGB(current_mask)
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -80,6 +86,8 @@ func change_mask():
 	if $MaskCheck.has_overlapping_bodies() == false:
 		if mask > 0:
 			set_collision_mask_value(9 + mask, true)
+			var tween = get_tree().create_tween()
+			tween.parallel().tween_property(mask_musics[mask], "volume_linear", 1, 0.2)
 		if next_mask > 0:
 			$MaskCheck.set_collision_mask_value(9 + next_mask, true)
 		mask = next_mask
@@ -88,6 +96,8 @@ func change_mask():
 			next_mask = 0
 		if mask > 0:
 			set_collision_mask_value(9 + mask, false)
+			var tween = get_tree().create_tween()
+			tween.parallel().tween_property(mask_musics[mask], "volume_linear", 0, 0.2)
 		if next_mask > 0:
 			$MaskCheck.set_collision_mask_value(9 + next_mask, false)
 		change_RGB.emit(mask)

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dkx7fd88tpis"]
+
+[ext_resource type="AudioStream" uid="uid://chosgyh58s5d" path="res://Basis/Musics/electroloop5.mp3" id="1_asvgx"]
+
+[node name="BMusic" type="AudioStreamPlayer" unique_id=1041364348]
+stream = ExtResource("1_asvgx")
+autoplay = true

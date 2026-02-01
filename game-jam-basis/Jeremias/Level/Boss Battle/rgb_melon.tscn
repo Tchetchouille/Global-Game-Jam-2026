@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cc5knnl4x2pyb"]
+
+[ext_resource type="Texture2D" uid="uid://ikw7yvl0v0tl" path="res://Colins_stuff/sprites/melon.png" id="1_orytd"]
+[ext_resource type="Texture2D" uid="uid://byiv60sx2kx4s" path="res://Colins_stuff/sprites/mask_fruit.png" id="2_h62bq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0rtr"]
+radius = 56.0357
+
+[node name="RGBMelon" type="RigidBody2D" unique_id=34198173]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1792570472]
+position = Vector2(0.99999994, -9.000001)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_orytd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1498481759]
+position = Vector2(0.99999994, -0.99999994)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_h62bq")
+
+[node name="Area2D" type="CollisionShape2D" parent="." unique_id=1787695430]
+shape = SubResource("CircleShape2D_m0rtr")

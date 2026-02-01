@@ -36,7 +36,7 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_27ghy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=402165257]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_70ipj")
 animation = &"elon"
 
@@ -44,7 +44,7 @@ animation = &"elon"
 
 [node name="FloorCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1294368368]
 target_position = Vector2(0, 300)
-collision_mask = 32768
+collision_mask = 3584
 
 [node name="LeftCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1965838104]
 target_position = Vector2(-150, 1)
@@ -61,3 +61,9 @@ collision_mask = 3584
 [node name="RightCheck" type="RayCast2D" parent="ObstacleCheck" unique_id=1603363678]
 target_position = Vector2(150, 1)
 collision_mask = 3584
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1663915088]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

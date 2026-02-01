@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dvx7jbikljhb3"]
+
+[ext_resource type="AudioStream" uid="uid://0gc8jb2naxbb" path="res://Basis/Musics/westernloop4.mp3" id="1_syvb8"]
+
+[node name="RMusic" type="AudioStreamPlayer" unique_id=1352142794]
+stream = ExtResource("1_syvb8")
+autoplay = true
