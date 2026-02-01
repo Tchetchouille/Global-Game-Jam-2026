@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfg7xlsg5lau1" path="res://Jeremias/Level/Boss Battle/elon_mask.gd" id="1_oian4"]
 [ext_resource type="Texture2D" uid="uid://br5qlgo55rv8m" path="res://Colins_stuff/sprites/spritesheet_elon.png" id="2_5dj2f"]
-[ext_resource type="Script" uid="uid://7gk1s3oflhlk" path="res://Jeremias/Level/Boss Battle/elon_health.gd" id="3_70ipj"]
+[ext_resource type="Script" path="res://Jeremias/Level/Boss Battle/elon_health.gd" id="3_70ipj"]
 [ext_resource type="FontFile" uid="uid://dr2dg1sgiylf1" path="res://Colins_stuff/fonts/Anarchist Mustache.ttf" id="3_c503r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dj2f"]
@@ -86,7 +86,7 @@ target_position = Vector2(200, 1)
 collision_mask = 3584
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1663915088]
-wait_time = 5.0
+wait_time = 15.0
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659995199]
