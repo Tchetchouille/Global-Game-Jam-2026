@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cjr53qa8wuw1r" path="res://Colins_stuff/sprites/mask_blue.png" id="16_t1gxj"]
 [ext_resource type="Texture2D" uid="uid://da4ei0gnmf08a" path="res://Colins_stuff/sprites/sunflower_elon.png" id="18_uo2yw"]
 [ext_resource type="Script" uid="uid://bx3x28kos3rms" path="res://Colins_stuff/Level/stop_collision.gd" id="19_2a3kw"]
+[ext_resource type="Script" uid="uid://b0wixgexbvmdo" path="res://Colins_stuff/Level/transition.gd" id="20_7nl04"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vyn4e"]
 
@@ -36,6 +37,9 @@ size = Vector2(269.5, 147.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uo2yw"]
 size = Vector2(497, 430)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a3kw"]
+size = Vector2(502, 448)
 
 [node name="Level1" type="Node2D" unique_id=2071320361]
 
@@ -286,6 +290,72 @@ shape = SubResource("RectangleShape2D_uo2yw")
 
 [node name="Timer" type="Timer" parent="StopCollision" unique_id=1901580880]
 
+[node name="tableaux" type="Node" parent="." unique_id=672753379]
+
+[node name="Sprite2D" type="Sprite2D" parent="tableaux" unique_id=853233594]
+position = Vector2(29845.502, -186.59488)
+scale = Vector2(0.27217942, 0.27217945)
+texture = ExtResource("14_ut02k")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tableaux" unique_id=409292067]
+position = Vector2(29854.502, 4414.406)
+scale = Vector2(0.27217942, 0.27217945)
+texture = ExtResource("14_ut02k")
+
+[node name="Sprite2D3" type="Sprite2D" parent="tableaux" unique_id=2033549157]
+position = Vector2(29860.5, 2113.405)
+scale = Vector2(0.27217942, 0.27217945)
+texture = ExtResource("18_uo2yw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="tableaux" unique_id=140559349]
+position = Vector2(29745.504, 458.40512)
+scale = Vector2(0.1361734, 0.13617341)
+texture = ExtResource("18_uo2yw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="tableaux" unique_id=1141797673]
+position = Vector2(30003.502, 1210.4052)
+scale = Vector2(0.16700542, 0.16700543)
+texture = ExtResource("6_smija")
+
+[node name="Sprite2D6" type="Sprite2D" parent="tableaux" unique_id=904128922]
+position = Vector2(29987.502, 5815.4053)
+scale = Vector2(0.16700542, 0.16700543)
+texture = ExtResource("6_smija")
+
+[node name="Sprite2D7" type="Sprite2D" parent="tableaux" unique_id=1348273940]
+modulate = Color(0.6489307, 0.9602377, 0.9213567, 1)
+position = Vector2(29990.502, 3513.405)
+scale = Vector2(0.16700542, 0.16700543)
+texture = ExtResource("6_smija")
+
+[node name="Sprite2D8" type="Sprite2D" parent="tableaux" unique_id=1975681343]
+position = Vector2(29745.504, 2745.405)
+scale = Vector2(0.1361734, 0.13617341)
+texture = ExtResource("14_ut02k")
+
+[node name="Sprite2D9" type="Sprite2D" parent="tableaux" unique_id=1764901139]
+position = Vector2(29745.502, 5049.4053)
+scale = Vector2(0.1361734, 0.13617341)
+texture = ExtResource("18_uo2yw")
+
+[node name="Transition" type="Area2D" parent="." unique_id=447229374]
+position = Vector2(30613, 2163)
+script = ExtResource("20_7nl04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transition" unique_id=1834087926]
+position = Vector2(29, 214)
+shape = SubResource("RectangleShape2D_2a3kw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=224253921]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1764640118]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
 [connection signal="body_entered" from="Mask11" to="Mask11" method="_on_body_entered"]
 [connection signal="body_exited" from="Mask11" to="Mask11" method="_on_body_exited"]
@@ -301,3 +371,4 @@ shape = SubResource("RectangleShape2D_uo2yw")
 [connection signal="body_exited" from="MasqueBleu" to="MasqueBleu" method="_on_body_exited"]
 [connection signal="body_entered" from="StopCollision" to="StopCollision" method="_on_body_entered"]
 [connection signal="timeout" from="StopCollision/Timer" to="StopCollision" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Transition" to="Transition" method="_on_body_entered"]
