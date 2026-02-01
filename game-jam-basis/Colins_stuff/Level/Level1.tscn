@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dkqvkfka30mtf" path="res://Colins_stuff/sprites/mona_lisa_elon.png" id="14_ut02k"]
 [ext_resource type="Script" uid="uid://dta5stx8bfpbv" path="res://Colins_stuff/Level/masque_bleu.gd" id="16_j2yc8"]
 [ext_resource type="Texture2D" uid="uid://cjr53qa8wuw1r" path="res://Colins_stuff/sprites/mask_blue.png" id="16_t1gxj"]
+[ext_resource type="Texture2D" uid="uid://da4ei0gnmf08a" path="res://Colins_stuff/sprites/sunflower_elon.png" id="18_uo2yw"]
+[ext_resource type="Script" uid="uid://bx3x28kos3rms" path="res://Colins_stuff/Level/stop_collision.gd" id="19_2a3kw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vyn4e"]
 
@@ -32,6 +34,9 @@ size = Vector2(327, 283)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2yc8"]
 size = Vector2(269.5, 147.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo2yw"]
+size = Vector2(497, 430)
+
 [node name="Level1" type="Node2D" unique_id=2071320361]
 
 [node name="IceAgent" parent="." unique_id=434924876 instance=ExtResource("3_3q76x")]
@@ -39,8 +44,7 @@ position = Vector2(17279, -2091)
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("2_3q76x")]
 z_index = 3
-position = Vector2(13017, -2546)
-unlocked_masks = 2
+position = Vector2(28973, -1775)
 
 [node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
 position = Vector2(4, 0)
@@ -267,6 +271,21 @@ shape = SubResource("RectangleShape2D_j2yc8")
 [node name="Sprite2D" type="Sprite2D" parent="MasqueBleu" unique_id=792086057]
 texture = ExtResource("16_t1gxj")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=281444029]
+position = Vector2(9535, -821.99994)
+scale = Vector2(0.22026226, 0.22026226)
+texture = ExtResource("18_uo2yw")
+
+[node name="StopCollision" type="Area2D" parent="." unique_id=729418470]
+position = Vector2(30684, -513)
+script = ExtResource("19_2a3kw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StopCollision" unique_id=1096480096]
+position = Vector2(-37.5, 189)
+shape = SubResource("RectangleShape2D_uo2yw")
+
+[node name="Timer" type="Timer" parent="StopCollision" unique_id=1901580880]
+
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
 [connection signal="body_entered" from="Mask11" to="Mask11" method="_on_body_entered"]
 [connection signal="body_exited" from="Mask11" to="Mask11" method="_on_body_exited"]
@@ -280,3 +299,5 @@ texture = ExtResource("16_t1gxj")
 [connection signal="body_exited" from="Mask12" to="Mask12" method="_on_body_exited"]
 [connection signal="body_entered" from="MasqueBleu" to="MasqueBleu" method="_on_body_entered"]
 [connection signal="body_exited" from="MasqueBleu" to="MasqueBleu" method="_on_body_exited"]
+[connection signal="body_entered" from="StopCollision" to="StopCollision" method="_on_body_entered"]
+[connection signal="timeout" from="StopCollision/Timer" to="StopCollision" method="_on_timer_timeout"]
