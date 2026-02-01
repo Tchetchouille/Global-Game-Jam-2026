@@ -3,7 +3,27 @@
 [ext_resource type="Script" uid="uid://c65rqw3f1iyvh" path="res://Jeremias/Ennemies/ice_agent.gd" id="1_qsr7u"]
 [ext_resource type="Texture2D" uid="uid://ks22pvik1ler" path="res://Colins_stuff/sprites/spritesheet_evil.png" id="2_qsr7u"]
 [ext_resource type="PackedScene" uid="uid://criwlx0cna27f" path="res://Colins_stuff/player_scene/killzone.tscn" id="3_7ifcc"]
-[ext_resource type="Script" uid="uid://bb3qibjkq1p5w" path="res://Jeremias/Ennemies/death_by_wall.gd" id="4_3bk88"]
+[ext_resource type="Script" path="res://Jeremias/Ennemies/death_by_wall.gd" id="4_3bk88"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3icr"]
+atlas = ExtResource("2_qsr7u")
+region = Rect2(2048, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2nfg"]
+atlas = ExtResource("2_qsr7u")
+region = Rect2(1536, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6vde"]
+atlas = ExtResource("2_qsr7u")
+region = Rect2(1024, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o5o0"]
+atlas = ExtResource("2_qsr7u")
+region = Rect2(512, 1536, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdjd4"]
+atlas = ExtResource("2_qsr7u")
+region = Rect2(0, 1536, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ifcc"]
 atlas = ExtResource("2_qsr7u")
@@ -71,6 +91,26 @@ region = Rect2(2048, 512, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g3icr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3icr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2nfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6vde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o5o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdjd4")
+}],
+"loop": true,
+"name": &"born",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ifcc")
@@ -218,13 +258,14 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1521741250]
 sprite_frames = SubResource("SpriteFrames_g3icr")
-animation = &"run"
+animation = &"born"
+frame_progress = 0.95971537
 
 [node name="DeathTimer" type="Timer" parent="." unique_id=1959726147]
 one_shot = true
 
 [node name="Killzone" parent="." unique_id=133941148 instance=ExtResource("3_7ifcc")]
-collision_mask = 3584
+collision_mask = 3585
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone" unique_id=1449175875]
 position = Vector2(-5, 12)

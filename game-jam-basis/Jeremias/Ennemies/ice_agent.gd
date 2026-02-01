@@ -4,6 +4,7 @@ var target = null
 var sees_player = false
 var direction = 1
 var dying = false
+var borning = false
 @onready var player_detection = [
 	$PlayerCheck/PlayerCheckTop, 
 	$PlayerCheck/PlayerCheckMiddleTop, 
@@ -121,6 +122,8 @@ func die():
 		$Killzone.queue_free()
 	dying = true
 
+#func borning():
+	#
 
 func _on_death_timer_timeout() -> void:
 	queue_free()

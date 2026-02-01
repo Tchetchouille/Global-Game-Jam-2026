@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var unlocked_masks = 0
 
-const SPEED = 1200.0
-const ACCELERATION = 450.0
+const SPEED = 800.0
+const ACCELERATION = 550.0
 const DECELERATION = 2250.0
 const JUMP_VELOCITY = -750.0
 var dying = false

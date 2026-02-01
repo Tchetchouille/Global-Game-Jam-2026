@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://uyqkmxtbuh0f" path="res://Colins_stuff/sprites/mask_green.png" id="11_1wm1a"]
 [ext_resource type="Script" uid="uid://jlyq3x8ohetu" path="res://Colins_stuff/Level/masque_vert.gd" id="11_okb27"]
 [ext_resource type="Script" uid="uid://ccaiqrddd2c5h" path="res://Colins_stuff/Level/cutscene.gd" id="13_smija"]
+[ext_resource type="Texture2D" uid="uid://dkqvkfka30mtf" path="res://Colins_stuff/sprites/mona_lisa_elon.png" id="14_ut02k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vyn4e"]
 
@@ -32,7 +33,7 @@ position = Vector2(17279, -2091)
 
 [node name="Player" parent="." unique_id=1087869672 instance=ExtResource("2_3q76x")]
 z_index = 3
-position = Vector2(21, -1057)
+position = Vector2(20183, -3707)
 unlocked_masks = 2
 
 [node name="RGB" parent="." unique_id=1540660194 instance=ExtResource("2_fjvcd")]
@@ -228,6 +229,14 @@ z_index = 1
 position = Vector2(4457, -1287)
 scale = Vector2(0.1785956, 0.17859559)
 texture = ExtResource("6_smija")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node" unique_id=463989129]
+position = Vector2(4042.9998, -1319)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("14_ut02k")
+
+[node name="IceAgent3" parent="." unique_id=2047927488 instance=ExtResource("3_3q76x")]
+position = Vector2(22505, -3381)
 
 [connection signal="change_RGB" from="Player" to="RGB" method="_on_player_change_rgb"]
 [connection signal="body_entered" from="Mask11" to="Mask11" method="_on_body_entered"]
