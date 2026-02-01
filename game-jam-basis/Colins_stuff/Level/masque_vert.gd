@@ -6,7 +6,7 @@ var ENTERED = false
 var picked = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if !picked:
+	if !picked and body.get_name()=="Player":
 		APPEAR = 1
 		ENTERED = true
 		label.text = "Récupérer (E)"
@@ -17,6 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _process(delta: float) -> void:
 	if !picked:
 		if Input.is_action_just_pressed("interact") and ENTERED:
+			print("Je suis vert")
 			$"../Player".unlocked_masks+=1
 			$"../LabelVert".text = "Appuie sur SHIFT pour changer de masque"
 			APPEAR = -1
