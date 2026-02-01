@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cfg7xlsg5lau1" path="res://Jeremias/Level/Boss Battle/elon_mask.gd" id="1_oian4"]
 [ext_resource type="Texture2D" uid="uid://br5qlgo55rv8m" path="res://Colins_stuff/sprites/spritesheet_elon.png" id="2_5dj2f"]
+[ext_resource type="Script" uid="uid://7gk1s3oflhlk" path="res://Jeremias/Level/Boss Battle/elon_health.gd" id="3_70ipj"]
+[ext_resource type="FontFile" uid="uid://dr2dg1sgiylf1" path="res://Colins_stuff/fonts/Anarchist Mustache.ttf" id="3_c503r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dj2f"]
 atlas = ExtResource("2_5dj2f")
@@ -27,6 +29,29 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5dj2f"]
 radius = 107.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70ipj"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dj2f"]
+bg_color = Color(0.505885, 0.12533128, 0.14965785, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="ElonMask" type="CharacterBody2D" unique_id=1535777038]
 collision_layer = 128
@@ -68,4 +93,101 @@ autostart = true
 position = Vector2(-8, -26)
 shape = SubResource("CircleShape2D_5dj2f")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=123346582]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=900165863]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=1170114038]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer" unique_id=1568014333]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1715862839]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Bar" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=1682963939]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="ElonHealth" type="ProgressBar" parent="CanvasLayer/HBoxContainer/VBoxContainer/Bar" unique_id=1624619054]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_constants/outline_size = 20
+theme_override_styles/background = SubResource("StyleBoxFlat_70ipj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5dj2f")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_70ipj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/HBoxContainer/VBoxContainer/Bar" unique_id=416827088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("3_c503r")
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1]ELON MASK[/shake]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer/VBoxContainer" unique_id=770851165]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Control2" type="Control" parent="CanvasLayer/HBoxContainer" unique_id=644062228]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=997397429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MelonCheck" type="Area2D" parent="." unique_id=218686450]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MelonCheck" unique_id=1619180869]
+position = Vector2(-8, -26)
+shape = SubResource("CircleShape2D_5dj2f")
+
+[node name="MacronExplosion" type="Timer" parent="." unique_id=165040848]
+wait_time = 0.1
+
+[node name="VictoryTimer" type="Timer" parent="." unique_id=1005119358]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="MelonCheck" to="." method="_on_melon_check_body_entered"]
+[connection signal="timeout" from="MacronExplosion" to="." method="_on_macron_explosion_timeout"]
+[connection signal="timeout" from="VictoryTimer" to="." method="_on_victory_timer_timeout"]

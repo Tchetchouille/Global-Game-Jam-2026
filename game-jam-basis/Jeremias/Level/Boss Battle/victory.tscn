@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://7oobha1ljoky"]
+
+[ext_resource type="Texture2D" uid="uid://dia8bs12nbpap" path="res://Colins_stuff/sprites/victory.png" id="1_5x3mu"]
+[ext_resource type="Script" uid="uid://1vbyiqq7ku15" path="res://Jeremias/Level/Boss Battle/victory.gd" id="1_6tiyo"]
+
+[node name="Victory" type="CanvasLayer" unique_id=1617276081]
+script = ExtResource("1_6tiyo")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=144046786]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5x3mu")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1850334356]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1646368793]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.6437342, 0.80888695, 0.9265614, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[tornado radius=-3.0 freq=5.0 connected=1][wave amp=50.0 freq=5.0 connected=1]VICTOIRE[/wave][/tornado]"
+horizontal_alignment = 1
+vertical_alignment = 1
