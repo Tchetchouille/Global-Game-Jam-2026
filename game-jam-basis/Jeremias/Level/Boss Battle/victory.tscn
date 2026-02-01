@@ -15,15 +15,6 @@ grow_vertical = 2
 texture = ExtResource("1_5x3mu")
 expand_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1850334356]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1646368793]
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,3 +29,11 @@ bbcode_enabled = true
 text = "[tornado radius=-3.0 freq=5.0 connected=1][wave amp=50.0 freq=5.0 connected=1]VICTOIRE[/wave][/tornado]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1850334356]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

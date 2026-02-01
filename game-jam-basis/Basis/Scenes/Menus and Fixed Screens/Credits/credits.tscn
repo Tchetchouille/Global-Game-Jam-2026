@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://xi56kiiotqrn"]
+[gd_scene format=3 uid="uid://xi56kiiotqrn"]
 
 [ext_resource type="Script" uid="uid://c6jq6ke2esu5l" path="res://Basis/Scenes/Menus and Fixed Screens/Settings/back_button.gd" id="1_ryj2r"]
-[ext_resource type="Script" uid="uid://dstflxya5arvv" path="res://Basis/Scenes/Menus and Fixed Screens/Credits/credits_text.gd" id="2_l2pkk"]
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=1396014874]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=219621832]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.176419, 0.176419, 0.176419, 1)
 
-[node name="GlobalContainer" type="HBoxContainer" parent="."]
+[node name="GlobalContainer" type="HBoxContainer" parent="." unique_id=647820845]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,142 +27,138 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftMargin" type="Control" parent="GlobalContainer"]
+[node name="LeftMargin" type="Control" parent="GlobalContainer" unique_id=356577183]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="BackButtonContainer" type="VBoxContainer" parent="GlobalContainer"]
+[node name="BackButtonContainer" type="VBoxContainer" parent="GlobalContainer" unique_id=1596812605]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
 
-[node name="TopMargin" type="Control" parent="GlobalContainer/BackButtonContainer"]
+[node name="TopMargin" type="Control" parent="GlobalContainer/BackButtonContainer" unique_id=677975187]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="BackButton" type="Button" parent="GlobalContainer/BackButtonContainer"]
+[node name="BackButton" type="Button" parent="GlobalContainer/BackButtonContainer" unique_id=2055126607]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "BACK"
 script = ExtResource("1_ryj2r")
 
-[node name="BottomMargin" type="Control" parent="GlobalContainer/BackButtonContainer"]
+[node name="BottomMargin" type="Control" parent="GlobalContainer/BackButtonContainer" unique_id=1460895263]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="Separator" type="Control" parent="GlobalContainer"]
+[node name="Separator" type="Control" parent="GlobalContainer" unique_id=712617535]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="CreditsList" type="VBoxContainer" parent="GlobalContainer"]
+[node name="CreditsList" type="VBoxContainer" parent="GlobalContainer" unique_id=499684800]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="TopMargin" type="Control" parent="GlobalContainer/CreditsList"]
+[node name="TopMargin" type="Control" parent="GlobalContainer/CreditsList" unique_id=2016931821]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GameDesign" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="GameDesign" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=1559780370]
 layout_mode = 2
 size_flags_vertical = 3
 text = "GAME DESIGN"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_l2pkk")
-ratio = 0.03
 
-[node name="GameDesignPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="GameDesignPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=1892424071]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+text = "Jeremias Kuehne
+Mei Chi Lam
+Colin Luginbühl
+Dayani Tscherrig
+Juste Serge"
 scroll_active = false
-script = ExtResource("2_l2pkk")
-ratio = 0.01
+horizontal_alignment = 1
 
-[node name="Programming" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="Programming" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=44791449]
 layout_mode = 2
 size_flags_vertical = 3
 text = "PROGRAMMING"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_l2pkk")
-ratio = 0.03
 
-[node name="ProgrammingPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="ProgrammingPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=461839587]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+text = "Jeremias Kuehne
+Colin Luginbühl"
 scroll_active = false
-script = ExtResource("2_l2pkk")
-ratio = 0.01
+horizontal_alignment = 1
 
-[node name="Visuals" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="Visuals" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=315625944]
 layout_mode = 2
 size_flags_vertical = 3
 text = "VISUALS"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_l2pkk")
-ratio = 0.03
 
-[node name="VisualsPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="VisualsPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=2076861345]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+text = "Mei Chi Lam
+Loki Gwynbleidd (Anarchist Mustache font)"
 scroll_active = false
-script = ExtResource("2_l2pkk")
-ratio = 0.01
+horizontal_alignment = 1
 
-[node name="Music" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="Music" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=445156477]
 layout_mode = 2
 size_flags_vertical = 3
 text = "MUSIC"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_l2pkk")
-ratio = 0.03
 
-[node name="MusicPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="MusicPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=618418205]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+text = "Juste Serge"
 scroll_active = false
-script = ExtResource("2_l2pkk")
-ratio = 0.01
+horizontal_alignment = 1
 
-[node name="Sounds" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="Sounds" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=2098077858]
 layout_mode = 2
 size_flags_vertical = 3
 text = "SOUNDS"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_l2pkk")
-ratio = 0.03
 
-[node name="SoundsPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList"]
+[node name="SoundsPeople" type="RichTextLabel" parent="GlobalContainer/CreditsList" unique_id=1606408896]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+text = "Juste Serge"
 scroll_active = false
-script = ExtResource("2_l2pkk")
-ratio = 0.01
+horizontal_alignment = 1
 
-[node name="BottomMargin" type="Control" parent="GlobalContainer/CreditsList"]
+[node name="BottomMargin" type="Control" parent="GlobalContainer/CreditsList" unique_id=849997467]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RightMargin" type="Control" parent="GlobalContainer"]
+[node name="RightMargin" type="Control" parent="GlobalContainer" unique_id=1904639518]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.5
